@@ -1,0 +1,38 @@
+@media screen and (min-width: 1000px) {
+    #landing{
+        flex-direction: row;
+    }
+
+    .landintArticle {
+        width: 50vw;
+    }
+
+    #searchWidget{
+        height: 40%;
+        width: 50%;
+    }
+
+    #searchBlock {
+        height: 40%;
+    }
+
+    section#siteName h1 {
+        font-size: var(--font-size-big);
+    }
+
+    p {
+        font-size: var(--font-size-standart);
+    }
+
+    button p {
+        font-size: var(--font-size-l);
+    }
+
+    .dateInput{
+        font-size: var(--font-size-l);
+    }
+
+    .button {
+        font-size: var(--font-size-l);
+    }
+}

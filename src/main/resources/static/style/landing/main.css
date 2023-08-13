@@ -1,0 +1,81 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+#landing{
+    display: flex;
+}
+
+.landintArticle{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+#landingForm{
+    background: #6c7181;
+}
+
+#bookingArticle{
+    background-position: revert;
+    background-size: cover;
+    background-image: url("../../images/foneImages/forest.jpg");
+}
+
+#searchWidget{
+    display: flex;
+    flex-direction: column;
+    /*background: white;*/
+    border-radius: var(--border-radius-standart);
+    padding: var(--inset-standart);
+}
+
+#siteName {
+
+}
+
+section#siteName h1 {
+    margin: 0;
+    color: var(--font-color-dark);
+}
+
+section#siteName p {
+    margin: 0 0 10% 0;
+}
+
+p {
+    color: var(--font-color-dark);
+}
+
+#searchBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#sitySelect {
+}
+
+#sitySelect p {
+    color: var(--font-color-dark-label);
+    margin: var(--inset-standart);
+}
+
+#sitySelect:hover {
+    background: var(--font-color-dark);
+}
+
+#sitySelect:hover p {
+    color: #e8eaf3;
+}
+
+.dateInput{
+    font-family: var(--font-family);
+    color: var(--font-color-dark-label);
+    padding: var(--inset-standart);
+}
+
+.startOpacity {
+    opacity: 0;
+}

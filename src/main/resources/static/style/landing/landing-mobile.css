@@ -1,0 +1,38 @@
+@media screen and (max-width: 1000px) {
+    #landing {
+        flex-direction: column;
+    }
+
+    .landintArticle {
+        width: 100vw;
+    }
+
+    #searchWidget {
+        height: 60%;
+        width: var(--mobile-bookibg-widget-wight);
+    }
+
+    #searchBlock {
+        height: 30%;
+    }
+
+    section#siteName h1 {
+        font-size: var(--mobile-font-size-big);
+    }
+
+    p {
+        font-size: var(--mobile-font-size-standart);
+    }
+
+    button p {
+        font-size: var(--mobile-font-size-l);
+    }
+
+    .dateInput{
+        font-size: var(--mobile-font-size-l);
+    }
+
+    .button {
+        font-size: var(--mobile-font-size-l);
+    }
+}

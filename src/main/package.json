@@ -1,0 +1,7 @@
+{
+  "name": "main",
+  "version": "1.0.0",
+  "dependencies": {
+    "air-datepicker": "^3.4.0"
+  }
+}

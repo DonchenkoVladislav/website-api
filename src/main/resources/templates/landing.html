@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+
+<head>
+    <link rel="stylesheet" href="/style/main.css">
+    <link rel="stylesheet" href="/style/landing/main.css">
+    <link rel="stylesheet" href="/style/landing/landing-desktop.css">
+    <link rel="stylesheet" href="/style/landing/landing-mobile.css">
+    <link rel="stylesheet" href="/style/landing/animations.css">
+    <link rel="stylesheet" href="/scripts/airdatepicker/air-datepicker.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div id="landing">
+    <article id="bookingArticle" class="landintArticle startOpacity">
+        <!--Виджет поиска-->
+        <article id="searchWidget">
+            <!--Название сайта-->
+            <section id="siteName" class="startOpacity">
+                <h1>Свои</h1>
+                <p>Посуточная аренда квартир</p>
+            </section>
+
+            <section id="checkboxSpace"></section>
+            <section id="searchBlock" class="startOpacity">
+                <button id="sitySelect" class="alfaInput">
+                    <p>Калининград</p>
+                </button>
+                <input id="selectDate" type="text" class="input dateInput alfaInput" readonly="" placeholder="Выберите даты поездки" value="">
+                <button id="search" class="button">Подобрать варианты</button>
+            </section>
+
+        </article>
+    </article>
+    <article id="landingForm" class="landintArticle">
+
+    </article>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/landing/animationsController.js"></script>
+<script type="text/javascript" src="/scripts/landing/landingDatepicker.js"></script>
+<script type="text/javascript" src="/scripts/airdatepicker/air-datepicker.js"></script>

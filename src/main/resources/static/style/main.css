@@ -1,0 +1,43 @@
+:root{
+    /*border*/
+    --border-radius-standart: 10px;
+    --none-border: none;
+
+    /*Отступы*/
+    --inset-standart: 10px;
+
+    /*Шрифт*/
+    --font-family: sans-serif;
+
+    --font-color-dark: #2b2b2b;
+    --font-color-dark-label: #474d5b;
+
+    --font-size-big: 6vh;
+    --mobile-font-size-big: 10vh;
+
+    --font-size-l: 2vh;
+    --mobile-font-size-l: 3.2vh;
+
+    --font-size-standart: medium;
+    --mobile-font-size-standart: 2.4vh;
+
+    /*Общие цвета*/
+    --alfa-button-color-light: rgba(255, 255, 255, 0.6);
+
+    --mobile-bookibg-widget-wight: 80vw;
+
+}
+
+.alfaInput {
+    background: var(--alfa-button-color-light);
+    border: var(--none-border);
+    border-radius: var(--border-radius-standart);
+}
+
+.button {
+    background: var(--font-color-dark);
+    border: var(--none-border);
+    border-radius: var(--border-radius-standart);
+    color: aliceblue;
+    padding: var(--inset-standart);
+}
