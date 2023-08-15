@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="/style/landing/landing-desktop.css">
     <link rel="stylesheet" href="/style/landing/landing-mobile.css">
     <link rel="stylesheet" href="/style/landing/animations.css">
+    <link rel="stylesheet" href="/style/landing/banner.css">
     <link rel="stylesheet" href="/scripts/airdatepicker/air-datepicker.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<div id="landing">
-    <article id="bookingArticle" class="landintArticle startOpacity">
+<div id="landing" class="startOpacity">
+    <article id="bookingArticle" class="landingArticle">
         <!--Виджет поиска-->
         <article id="searchWidget">
             <!--Название сайта-->
@@ -26,17 +27,31 @@
                     <p>Калининград</p>
                 </button>
                 <input id="selectDate" type="text" class="input dateInput alfaInput" readonly="" placeholder="Выберите даты поездки" value="">
-                <button id="search" class="button">Подобрать варианты</button>
+                <button id="search" class="button">Найти</button>
             </section>
 
         </article>
     </article>
-    <article id="landingForm" class="landintArticle">
+    <article id="landingForm" class="landingArticle startOpacity">
+        <section id="mainMenu" class="startOpacity">
+            <a href="" class="mainMenuLink">О нас</a>
+            <a href="" class="mainMenuLink">Разместить жилье</a>
+            <a href="" class="mainMenuLink">Поддержка</a>
+        </section>
 
+        <section id="banersPlace" class="startOpacity">
+
+        </section>
+
+        <section id="footer" class="startOpacity">
+            <p class="footerText">При использовании данного сайта, вы подтверждаете свое согласие на использование файлов cookie</p>
+<!--            <p class="footerText">Информация о ценах не является публичной офертой. После отправки Вами заявки наши менеджеры свяжутся с Вами и уточнят цену и условия</p>-->
+        </section>
     </article>
 </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/landing/placeController.js"></script>
 <script type="text/javascript" src="/scripts/landing/animationsController.js"></script>
 <script type="text/javascript" src="/scripts/landing/landingDatepicker.js"></script>
 <script type="text/javascript" src="/scripts/airdatepicker/air-datepicker.js"></script>

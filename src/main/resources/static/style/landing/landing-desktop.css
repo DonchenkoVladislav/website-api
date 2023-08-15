@@ -3,13 +3,17 @@
         flex-direction: row;
     }
 
-    .landintArticle {
-        width: 50vw;
+    #bookingArticle {
+        width: 60vw;
+    }
+
+    #landingForm {
+        width: 40vw;
     }
 
     #searchWidget{
         height: 40%;
-        width: 50%;
+        width: 22vw;
     }
 
     #searchBlock {
@@ -34,5 +38,9 @@
 
     .button {
         font-size: var(--font-size-l);
+    }
+
+    .footerText {
+        font-size: smaller;
     }
 }

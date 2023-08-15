@@ -1,0 +1,84 @@
+.cityBanner {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 20%;
+    margin-bottom: var(--inset-standart);
+}
+
+.img-container-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    border-radius: var(--border-radius-standart);
+    overflow: hidden; /* скроет изображение, которое выходит за пределы контейнера */
+}
+
+.img-container-banner img {
+    width: 170%;
+    height: auto;
+}
+
+.bannerArticle {
+    width: 50%;
+}
+
+.bannerHeader {
+    margin: 0;
+    text-align: center;
+    color: #ffffffd9;
+}
+
+.bannerText {
+    margin-bottom: 0;
+    margin-left: 10px;
+    color: white;
+    font-weight: 300;
+    font-size: smaller;
+}
+
+.bannerButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.onBanner {
+    font-size: medium;
+}
+
+.cityBanner:hover p {
+    opacity: 0;
+    height: 0;
+    transition-duration: var(--time-fast);
+}
+
+.cityBanner:not(:hover) p {
+    opacity: 1;
+    height: 50%;
+    transition-duration: var(--time-fast);
+}
+
+.cityBanner:hover .bannerButtons{
+    opacity: 1;
+    transition-duration: var(--time-fast);
+}
+
+.cityBanner:not(:hover) .bannerButtons{
+    opacity: 0;
+    transition-duration: var(--time-fast);
+}
+
+.cityBanner:hover .img-container-banner img{
+    width: 150%;
+    transition-duration: var(--time-standart);
+}
+
+.cityBanner:not(:hover) .img-container-banner img{
+    width: 170%;
+    transition-duration: var(--time-standart);
+}

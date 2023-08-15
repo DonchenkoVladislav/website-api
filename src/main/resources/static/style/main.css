@@ -8,7 +8,10 @@
 
     /*Шрифт*/
     --font-family: sans-serif;
+    --font-family-headers: Leaguespartanbold, sans-serif;
+    --font-family-text: Noahregular, sans-serif;
 
+    --font-color-light: #e8eaf3;
     --font-color-dark: #2b2b2b;
     --font-color-dark-label: #474d5b;
 
@@ -26,6 +29,35 @@
 
     --mobile-bookibg-widget-wight: 80vw;
 
+    --time-fast: .3s;
+    --time-standart: .6s;
+
+}
+
+@font-face {
+    font-family: Leaguespartanbold;
+    src: url(fonts/Leaguespartanbold.ttf);
+}
+
+@font-face {
+    font-family: Noahregular;
+    src: url(fonts/Noahregular.ttf);
+}
+
+
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+a:active, /* активная/посещенная ссылка */
+a:hover,  /* при наведении */
+a {
+    text-decoration: none;
+}
+
+a {
+    font-family: var(--font-family-text);
 }
 
 .alfaInput {

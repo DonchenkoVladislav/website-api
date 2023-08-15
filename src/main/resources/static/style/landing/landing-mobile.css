@@ -1,9 +1,13 @@
 @media screen and (max-width: 1000px) {
+    article#landingForm {
+        display: none;
+    }
+
     #landing {
         flex-direction: column;
     }
 
-    .landintArticle {
+    #bookingArticle, #landingForm {
         width: 100vw;
     }
 
@@ -34,5 +38,9 @@
 
     .button {
         font-size: var(--mobile-font-size-l);
+    }
+
+    .footerText {
+        font-size: x-large;
     }
 }
