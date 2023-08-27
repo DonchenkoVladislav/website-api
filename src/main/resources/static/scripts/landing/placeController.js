@@ -1,46 +1,5 @@
-$(document).ready(function() {
-    createBannerList()
-})
-
-// function getPlaceList() {
-//     console.log("Метод getPlaceList()")
-//     $.ajax({
-//         type: 'GET',
-//         url: '/places',
-//         dataType: 'json',
-//         processData: false,
-//         contentType: 'application/json; charset=utf-8',
-//         success: function (places) {
-//             console.log("ghbdtn")
-//             places.forEach(place => createPlace(place))
-//         }
-//
-//     })
-// }
-//
-// function createPlace(place) {
-//     banner = document.createElement('section')
-//     banner.classList.add('banner')
-//     banner.style.backgroundPosition = "revert";
-//     banner.style.backgroundSize = "cover";
-//     banner.style.backgroundImage = 'url("../../'+ place.imageLink + '")';
-//
-//     header = document.createElement('h3')
-//     header.classList.add('bannerHeader')
-//     header.innerHTML = place.name
-//
-//     space = document.createElement('h2')
-//     space.classList.add('bannerHeader')
-//     space.innerHTML = place.description
-//
-//     banner.append(header, space)
-//
-//     document.getElementById('banersPlace').append(banner);
-// }
-
-//-------------------------------
-
-let cities = [
+//Список гоодов с названиями картинок на фоне и текстом описания
+var cities = [
     ["Калининград", "kaliningrad.png", "Один из символов города – знаменитый музей янтаря в башне из красного кирпича, когда-то она входила в систему оборонительных сооружений города"],
     ["Светлогорск", "svetlogorsk.png", "В Светлогорске много красивых старинных домиков, можно гулять и увидеть множество красоты вокруг"],
     ["Пионерский", "pionerskii.png", "Гулять на побережье удобно по чистому и обустроенному променаду или по пирсу, углубившему в море на 200 метров"],
@@ -48,15 +7,121 @@ let cities = [
     ["Зеленоградск", "zelegradsk.png", "Если Вы в первый, а может во второй или в третий раз приехали в Калининградскую область, то обязательно стоит заглянуть в «город котов»"]
 ]
 
+let linkForFooter = [
+    ["O нас", "/"],
+    ["Поддержка", "/"],
+    ["Разместить жилье", "/"]
+]
+
+const FOOTER_COOKIES_TEXT = "При использовании данного сайта, вы подтверждаете свое согласие на использование файлов cookie"
+
+$(document).ready(function () {
+    // Обработка для мобилки
+    if (window.matchMedia("(max-width: 1000px)").matches) {
+
+        document.getElementById('bookingArticle').style = "animation: blur " + 2.5 + "s ease-in-out";
+
+        // Создаем виджеты с городами и со сылкой в телеге
+        let telegramWidget = createMobileWidget(
+            '<h1>Гарантия теплой встречи</h1>',
+            '<p>С Вами работает команда «посуточный аренды квартир в Калининграде и области»</p>',
+            '<a class="telegramButtonMobile" href="">\n' +
+            '                <img width="82" height="82" src="/images/icons/telegram.svg">\n' +
+            '                <p>Мы в Telegram</p>\n' +
+            '            </a>',
+            'firstMobileLandingWidget'
+        )
+        let mobileCityHeaderWidget = createMobileHeaderWidget('<h1>Рекомендуем посетить</h1>')
+        let mobileCityWidget = createCityMobileWidget(cities)
+        let footer = createFooter(linkForFooter)
+
+
+        // Помещаем все виджеты созданые ранее в widgetPlaceOnMobileLanding - место для виджетов
+        document.getElementById('widgetPlaceOnMobileLanding')
+            .append(
+                telegramWidget,
+                mobileCityHeaderWidget,
+                mobileCityWidget,
+                footer
+            )
+    } else {
+        // Обработка для десктопных браузеров
+
+        document.getElementById('widgetPlaceOnMobileLanding').remove()
+        document.getElementsByClassName('footerText')[0].innerHTML = FOOTER_COOKIES_TEXT
+        createBannerList()
+    }
+})
+
+//Создаем список баннеров с городами справа для десктопа
 function createBannerList() {
     cities.forEach(city => {
         let banner = document.createElement('div')
         banner.classList.add('cityBanner')
         banner.innerHTML = createBanner(city[0], 'images/foneImages/' + city[1], city[2])
+        banner.addEventListener('click', (event) => selectAndFocus(city[0]))
         document.getElementById('banersPlace').append(banner)
     })
 }
 
+// Универсальный виджет для мобилки
+function createMobileWidget(headerWithTag, textWithTag, button, id) {
+    let banner = document.createElement('div')
+    banner.classList.add('widget')
+    banner.id = id
+
+    let headerPlace = document.createElement('section')
+    headerPlace.classList.add('widgetHeader')
+    headerPlace.innerHTML = headerWithTag
+    let textPlace = document.createElement('section')
+    textPlace.classList.add('widgetText')
+    textPlace.innerHTML = textWithTag
+    let buttonPlace = document.createElement('section')
+    buttonPlace.classList.add('widgetButton')
+    buttonPlace.innerHTML = button
+
+    banner.append(headerPlace, textPlace, buttonPlace)
+
+    return banner;
+}
+
+function createMobileHeaderWidget(headerWithTag) {
+    let banner = document.createElement('div')
+    banner.classList.add('widgetWithAlfaBackground')
+
+    let headerPlace = document.createElement('section')
+    headerPlace.classList.add('widgetHeaderLight')
+    headerPlace.innerHTML = headerWithTag
+
+    banner.append(headerPlace)
+
+    return banner;
+}
+
+// Виджет со списком городов для мобилки - для десктопа - метод createBannerList()
+function createCityMobileWidget() {
+    let mobileCityWidget = document.createElement('section');
+    mobileCityWidget.classList.add('mobileCityWidget')
+    mobileCityWidget.classList.add('widgetWithAlfaBackground')
+
+    cities.forEach(city => {
+        let cityMobileBanner = createCityMobileBanner(city)
+        mobileCityWidget.append(cityMobileBanner)
+    })
+
+    return mobileCityWidget;
+}
+
+function createCityMobileBanner(city) {
+    let banner = document.createElement('div')
+    banner.classList.add('mobileCityBanner')
+    banner.innerHTML = createMobileCityBanner(city[0], 'images/foneImages/' + city[1])
+    banner.addEventListener('click', (event) => selectAndFocus(city[0]))
+
+    return banner;
+}
+
+//Создаем баннер для каждого города
 function createBanner(city, image, description) {
     return "    <div class=\"img-container-banner\">\n" +
         "        <img src='" + image + "' class=\"bannerImage\">\n" +
@@ -68,4 +133,34 @@ function createBanner(city, image, description) {
         "            <button class=\"button onBanner\">Найти жилье</button>\n" +
         "        </section>\n" +
         "    </article>"
+}
+
+//Создаем баннер для каждого города для мобилки
+function createMobileCityBanner(city, image) {
+    return "<img src='" + image + "' class=\"\">" +
+        "<h2 class=\"\">" + city + "</h2>"
+}
+
+function createFooter(linkList) {
+    let footer = document.createElement('article')
+    footer.classList.add('mobileFooter')
+
+    linkList.forEach(link => {
+        let objectLink = document.createElement('a')
+        objectLink.innerHTML = link[0]
+        objectLink.href = link[1]
+        objectLink.classList.add('mobileFooterLink')
+
+        footer.append(objectLink)
+    })
+
+    let hr = document.createElement('hr')
+
+    let cookiesText = document.createElement('p')
+    cookiesText.id = 'footerCookiesText'
+    cookiesText.innerHTML = FOOTER_COOKIES_TEXT
+
+    footer.append(hr, cookiesText)
+
+    return footer;
 }

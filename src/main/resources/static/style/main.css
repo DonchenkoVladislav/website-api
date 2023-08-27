@@ -1,10 +1,13 @@
 :root{
     /*border*/
     --border-radius-standart: 10px;
+    --border-radius-standart-mobile: 3vh;
+    --border-radius-mini-mobile: 1.5vh;
     --none-border: none;
 
     /*Отступы*/
     --inset-standart: 10px;
+    --mobile-widget-inset: 2vh;
 
     /*Шрифт*/
     --font-family: sans-serif;
@@ -23,11 +26,20 @@
 
     --font-size-standart: medium;
     --mobile-font-size-standart: 2.4vh;
+    --mobile-font-size-mini: 3.8vw;
 
     /*Общие цвета*/
     --alfa-button-color-light: rgba(255, 255, 255, 0.6);
+    --menu-background-color: #4c4c4c82;
+
+    --telegram-color: #2ab6f6;
+
+    --widget-background-color: #2b2b2b;
+    --widget-place-on-landing-background-color: white;
 
     --mobile-bookibg-widget-wight: 80vw;
+    --mobile-widget-wight: 90vw;
+    --bookibg-widget-wight: 22vw;
 
     --time-fast: .3s;
     --time-standart: .6s;
@@ -51,7 +63,6 @@ body{
 }
 
 a:active, /* активная/посещенная ссылка */
-a:hover,  /* при наведении */
 a {
     text-decoration: none;
 }

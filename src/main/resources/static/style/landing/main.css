@@ -2,13 +2,10 @@
     display: flex;
     background-position: revert;
     background-size: cover;
-    background-image: url("../../images/foneImages/forest.jpg");
 }
 
 .landingArticle{
     height: 100vh;
-    display: grid;
-    place-items: center;
 }
 
 #landingForm{
@@ -23,12 +20,17 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
     width: 100%;
-    margin-top: var(--inset-standart);
+    height: 5%;
+    background: var(--menu-background-color);
 }
 
 .mainMenuLink {
     color: var(--font-color-light);
+}
+.mainMenuLink:hover {
+    text-decoration: underline;
 }
 
 #bookingArticle{
@@ -43,7 +45,6 @@
 }
 
 #siteName {
-
 }
 
 section#siteName h1 {
@@ -66,19 +67,19 @@ p {
     justify-content: space-between;
 }
 
-#sitySelect {
+.sitySelect {
 }
 
-#sitySelect p {
+.sitySelect p {
     color: var(--font-color-dark-label);
     margin: var(--inset-standart);
 }
 
-#sitySelect:hover {
+.sitySelect:hover {
     background: var(--font-color-dark);
 }
 
-#sitySelect:hover p {
+.sitySelect:hover p {
     color: var(--font-color-light);
 }
 
@@ -118,11 +119,39 @@ p {
     justify-content: space-between;
     padding: var(--inset-standart) 0;
     width: 100%;
-    background: #4c4c4c82;
+    background: var(--menu-background-color);
 }
 
 .footerText {
     margin: 0 var(--inset-standart);
     text-align: justify;
     color: var(--font-color-light);
+}
+
+.telegramButton {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    color: var(--font-color-dark);
+    width: 150px;
+    height: 32px;
+    border-radius: 15px;
+    align-items: center;
+}
+
+.telegramButton:hover {
+    cursor: pointer;
+}
+
+.telegramButton p {
+    margin-left: 5px;
+}
+
+#placeToCitySelect {
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    background-color: white;
+    border-radius: var(--border-radius-standart);
+    position: absolute;
 }

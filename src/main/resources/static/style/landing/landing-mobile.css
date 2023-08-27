@@ -5,19 +5,26 @@
 
     #landing {
         flex-direction: column;
+        background: linear-gradient(0deg, #171918, #383D43, #94A5C1, #FAF9FE);
     }
 
     #bookingArticle, #landingForm {
         width: 100vw;
+        backdrop-filter: blur(30px)
     }
 
     #searchWidget {
-        height: 60%;
+        height: 63vh;
         width: var(--mobile-bookibg-widget-wight);
+        justify-content: end;
+        position: sticky;
+        top: 0;
+        margin-bottom: var(--mobile-widget-inset);
+
     }
 
     #searchBlock {
-        height: 30%;
+        height: 18vh;
     }
 
     section#siteName h1 {
@@ -42,5 +49,49 @@
 
     .footerText {
         font-size: x-large;
+    }
+
+    #placeToCitySelect {
+        width: var(--mobile-bookibg-widget-wight);
+    }
+
+    .landingArticle {
+        display: flex;
+        justify-content: center;
+    }
+
+    .mobileCityWidget {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: start;
+        margin-top: var(--mobile-widget-inset);
+    }
+
+    .mobileCityBanner {
+        display: flex;
+        flex-direction: column;
+        width: 30vw;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mobileCityBanner h2 {
+        font-size: var(--mobile-font-size-mini);
+    }
+
+    .mobileCityBanner img {
+        display: block;
+        width: 28vw;
+        height: 28vw;
+        object-fit: cover;
+        border-radius: var(--border-radius-standart-mobile);
+    }
+
+    #firstMobileLandingWidget {
+        background-image: url("../../images/banners/telegram.png");
+        background-size: 1761px;
+        background-position-x: 1173px;
+        background-position-y: -2px;
     }
 }

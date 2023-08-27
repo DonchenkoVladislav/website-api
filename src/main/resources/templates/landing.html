@@ -2,7 +2,9 @@
 
 <head>
     <link rel="stylesheet" href="/style/main.css">
+    <link rel="stylesheet" href="/style/widget.css">
     <link rel="stylesheet" href="/style/landing/main.css">
+    <link rel="stylesheet" href="/style/footer.css">
     <link rel="stylesheet" href="/style/landing/landing-desktop.css">
     <link rel="stylesheet" href="/style/landing/landing-mobile.css">
     <link rel="stylesheet" href="/style/landing/animations.css">
@@ -23,20 +25,28 @@
 
             <section id="checkboxSpace"></section>
             <section id="searchBlock" class="startOpacity">
-                <button id="sitySelect" class="alfaInput">
+                <button id="cityInput" class="alfaInput sitySelect" onclick="createCitySelect()">
                     <p>Калининград</p>
                 </button>
+                <article id="placeToCitySelect"></article>
                 <input id="selectDate" type="text" class="input dateInput alfaInput" readonly="" placeholder="Выберите даты поездки" value="">
                 <button id="search" class="button">Найти</button>
             </section>
 
         </article>
     </article>
+    <section id="widgetPlaceOnMobileLanding">
+
+    </section>
     <article id="landingForm" class="landingArticle startOpacity">
         <section id="mainMenu" class="startOpacity">
             <a href="" class="mainMenuLink">О нас</a>
             <a href="" class="mainMenuLink">Разместить жилье</a>
             <a href="" class="mainMenuLink">Поддержка</a>
+            <a class="telegramButton" href="">
+                <img width="32" height="32" src="/images/icons/telegram.svg">
+                <p>Мы в Telegram</p>
+            </a>
         </section>
 
         <section id="banersPlace" class="startOpacity">
@@ -44,14 +54,16 @@
         </section>
 
         <section id="footer" class="startOpacity">
-            <p class="footerText">При использовании данного сайта, вы подтверждаете свое согласие на использование файлов cookie</p>
+            <p class="footerText"></p>
 <!--            <p class="footerText">Информация о ценах не является публичной офертой. После отправки Вами заявки наши менеджеры свяжутся с Вами и уточнят цену и условия</p>-->
         </section>
     </article>
 </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/widget.js"></script>
 <script type="text/javascript" src="/scripts/landing/placeController.js"></script>
 <script type="text/javascript" src="/scripts/landing/animationsController.js"></script>
 <script type="text/javascript" src="/scripts/landing/landingDatepicker.js"></script>
+<script type="text/javascript" src="/scripts/landing/selectCity.js"></script>
 <script type="text/javascript" src="/scripts/airdatepicker/air-datepicker.js"></script>

@@ -1,0 +1,90 @@
+#widgetPlaceOnMobileLanding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--widget-place-on-landing-background-color);
+    padding-top: 2vh;
+    border-top-left-radius: 2vh;
+    border-top-right-radius: 2vh;
+    z-index: 1;
+}
+
+.widget {
+    background: var(--widget-background-color);
+    width: var(--mobile-widget-wight);
+    border-radius: var(--border-radius-mini-mobile);
+}
+
+.widgetWithAlfaBackground {
+    width: var(--mobile-widget-wight);
+    border-radius: var(--border-radius-mini-mobile);
+}
+
+#firstMobileLandingWidget{
+    /*margin-top: -8vh;*/
+}
+
+.widgetHeader {
+
+}
+
+.widgetHeader h1 {
+    padding: 1vh 0 0 1vh;
+    font-size: var(--mobile-font-size-standart);
+    font-family: var(--font-family-headers);
+    color: var(--font-color-light);
+    margin: 0;
+    margin-right: 26%;
+}
+
+.widgetHeaderLight {
+    margin-top: var(--mobile-widget-inset);
+}
+
+.widgetHeaderLight h1 {
+    padding: 1vh 0 0 1vh;
+    font-size: var(--mobile-font-size-standart);
+    font-family: var(--font-family-headers);
+    color: var(--font-color-dark);
+    margin: 0;
+}
+
+
+.widgetText {
+
+}
+
+.widgetText p {
+    margin: 2vw 34% 0 0;
+    padding: 1vh;
+    font-size: x-large;
+    color: var(--font-color-light);
+}
+
+.widgetButton {
+    padding: 20px;
+    display: flex;
+    justify-content: end;
+}
+
+.telegramButtonMobile {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    color: var(--font-color-dark);
+    width: 384px;
+    height: 72px;
+    /*border-radius: var(--border-radius-standart-mobile);*/
+    border-radius: 1vh;
+    align-items: center;
+    padding: var(--inset-standart);
+    padding-left: 5px;
+    border-color: var(--telegram-color);
+}
+
+.telegramButtonMobile p {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    color: var(--font-color-dark);
+}

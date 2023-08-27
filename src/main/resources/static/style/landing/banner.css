@@ -51,6 +51,10 @@
     font-size: medium;
 }
 
+.cityBanner:hover {
+    cursor: pointer;
+}
+
 .cityBanner:hover p {
     opacity: 0;
     height: 0;

@@ -1,6 +1,7 @@
 @media screen and (min-width: 1000px) {
     #landing{
         flex-direction: row;
+        background-image: url("../../images/foneImages/forest.jpg");
     }
 
     #bookingArticle {
@@ -9,6 +10,11 @@
 
     #landingForm {
         width: 40vw;
+    }
+
+    .landingArticle {
+        display: grid;
+        place-items: center;
     }
 
     #searchWidget{
@@ -42,5 +48,9 @@
 
     .footerText {
         font-size: smaller;
+    }
+
+    #placeToCitySelect {
+        width: var(--bookibg-widget-wight);
     }
 }
