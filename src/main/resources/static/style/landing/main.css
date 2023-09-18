@@ -16,23 +16,6 @@
     backdrop-filter: blur(5px);
 }
 
-#mainMenu{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    height: 5%;
-    background: var(--menu-background-color);
-}
-
-.mainMenuLink {
-    color: var(--font-color-light);
-}
-.mainMenuLink:hover {
-    text-decoration: underline;
-}
-
 #bookingArticle{
 
 }
@@ -90,10 +73,6 @@ p {
     text-align: center;
 }
 
-.startOpacity {
-    opacity: 0;
-}
-
 #banersPlace {
     display: flex;
     flex-direction: column;
@@ -122,29 +101,10 @@ p {
     background: var(--menu-background-color);
 }
 
-.footerText {
+.catalog_footerText {
     margin: 0 var(--inset-standart);
     text-align: justify;
     color: var(--font-color-light);
-}
-
-.telegramButton {
-    display: flex;
-    flex-direction: row;
-    background-color: white;
-    color: var(--font-color-dark);
-    width: 150px;
-    height: 32px;
-    border-radius: 15px;
-    align-items: center;
-}
-
-.telegramButton:hover {
-    cursor: pointer;
-}
-
-.telegramButton p {
-    margin-left: 5px;
 }
 
 #placeToCitySelect {

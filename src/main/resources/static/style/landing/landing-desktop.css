@@ -46,11 +46,15 @@
         font-size: var(--font-size-l);
     }
 
-    .footerText {
+    .catalog_footerText {
         font-size: smaller;
     }
 
     #placeToCitySelect {
         width: var(--bookibg-widget-wight);
+    }
+
+    .startOpacityDesctop {
+        opacity: 0;
     }
 }

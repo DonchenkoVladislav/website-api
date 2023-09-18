@@ -5,7 +5,7 @@
 
     #landing {
         flex-direction: column;
-        background: linear-gradient(0deg, #171918, #383D43, #94A5C1, #FAF9FE);
+        background: var(--backgrount-gradient)
     }
 
     #bookingArticle, #landingForm {
@@ -47,7 +47,7 @@
         font-size: var(--mobile-font-size-l);
     }
 
-    .footerText {
+    .catalog_footerText {
         font-size: x-large;
     }
 

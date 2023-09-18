@@ -1,0 +1,108 @@
+@media screen and (min-width: 1000px) {
+
+    .onlyDesctop {}
+
+    .onlyMobile {
+        display: none;
+    }
+
+    #catalog_main {
+        flex-direction: row;
+    }
+
+    #catalog-column {
+        width: var(--desctop-catalog-wight);
+    }
+
+    #map {
+        height: var(--desctop-map-height);
+        width: var(--desctop-map-wight);
+        left: var(--desctop-catalog-wight);
+    }
+
+    #catalog-header, #catalog-body {
+        width: var(--desctop-catalog-wight);
+    }
+
+    #catalog-body {
+        border-radius: var(--border-radius-standart);
+    }
+
+    .filterButton {
+        border-radius: var(--border-radius-standart);
+    }
+
+    #searchBlock {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        padding: 1vh 0;
+        background-color: var(--menu-background-color);
+    }
+
+    .sitySelect {
+    }
+
+    .sitySelect p {
+        color: var(--font-color-dark-label);
+        margin: var(--inset-standart);
+    }
+
+    .sitySelect:hover {
+        background: var(--font-color-dark);
+    }
+
+    .sitySelect:hover p {
+        color: var(--font-color-light);
+    }
+
+    .alfaInput {
+        background: var(--alfa-button-color-light);
+        border: var(--none-border);
+        border-radius: var(--border-radius-standart);
+    }
+
+    #placeToCitySelect {
+        display: flex;
+        flex-direction: column;
+        z-index: 1;
+        background-color: white;
+        border-radius: var(--border-radius-standart);
+        position: absolute;
+    }
+
+    #placeToCitySelect {
+        width: var(--bookibg-widget-wight);
+    }
+
+    .dateInput{
+        font-family: var(--font-family);
+        color: var(--font-color-dark-label);
+        padding: var(--inset-standart);
+        text-align: center;
+    }
+
+    .dateInput{
+        font-size: var(--font-size-l);
+        width: 50%;
+    }
+
+    .button {
+        font-size: var(--font-size-l);
+        margin-right: 1vw;
+    }
+
+    button p {
+        font-size: var(--font-size-l);
+    }
+
+    #catalog-header-dates img {
+        width: var(--catalog-img-size-micro);
+        height: var(--catalog-img-size-micro);
+    }
+
+    #catalog-header-dates-calendar {
+        width: 35%;
+    }
+}

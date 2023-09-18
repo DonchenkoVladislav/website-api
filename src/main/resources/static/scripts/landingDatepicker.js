@@ -1,5 +1,7 @@
+var landingAirDatepicker
+
 $(document).ready(function() {
-    new AirDatepicker('#selectDate', {
+    landingAirDatepicker = new AirDatepicker('#selectDate', {
         range: true,
         multipleDatesSeparator: ' - ',
         minDate: new Date(),

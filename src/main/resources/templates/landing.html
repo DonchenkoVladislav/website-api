@@ -5,15 +5,16 @@
     <link rel="stylesheet" href="/style/widget.css">
     <link rel="stylesheet" href="/style/landing/main.css">
     <link rel="stylesheet" href="/style/footer.css">
+    <link rel="stylesheet" href="/style/menu.css">
     <link rel="stylesheet" href="/style/landing/landing-desktop.css">
     <link rel="stylesheet" href="/style/landing/landing-mobile.css">
-    <link rel="stylesheet" href="/style/landing/animations.css">
+    <link rel="stylesheet" href="/style/animations.css">
     <link rel="stylesheet" href="/style/landing/banner.css">
     <link rel="stylesheet" href="/scripts/airdatepicker/air-datepicker.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<div id="landing" class="startOpacity">
+<div id="landing" class="startOpacityDesctop">
     <article id="bookingArticle" class="landingArticle">
         <!--Виджет поиска-->
         <article id="searchWidget">
@@ -24,13 +25,13 @@
             </section>
 
             <section id="checkboxSpace"></section>
-            <section id="searchBlock" class="startOpacity">
+            <section id="searchBlock" class="startOpacityDesctop">
                 <button id="cityInput" class="alfaInput sitySelect" onclick="createCitySelect()">
                     <p>Калининград</p>
                 </button>
                 <article id="placeToCitySelect"></article>
-                <input id="selectDate" type="text" class="input dateInput alfaInput" readonly="" placeholder="Выберите даты поездки" value="">
-                <button id="search" class="button">Найти</button>
+                <input id="selectDate" type="text" class="input dateInput alfaInput" readonly="" placeholder="Выберите даты поездки">
+                <button id="search" class="button" onclick="getCatalogPage()">Найти</button>
             </section>
 
         </article>
@@ -54,7 +55,7 @@
         </section>
 
         <section id="footer" class="startOpacity">
-            <p class="footerText"></p>
+            <p class="catalog_footerText"></p>
 <!--            <p class="footerText">Информация о ценах не является публичной офертой. После отправки Вами заявки наши менеджеры свяжутся с Вами и уточнят цену и условия</p>-->
         </section>
     </article>
@@ -62,8 +63,12 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script type="text/javascript" src="/scripts/widget.js"></script>
+<script type="text/javascript" src="/scripts/landing/request.js"></script>
 <script type="text/javascript" src="/scripts/landing/placeController.js"></script>
+<script type="text/javascript" src="/scripts/constants/animationConstants.js"></script>
 <script type="text/javascript" src="/scripts/landing/animationsController.js"></script>
-<script type="text/javascript" src="/scripts/landing/landingDatepicker.js"></script>
-<script type="text/javascript" src="/scripts/landing/selectCity.js"></script>
+<script type="text/javascript" src="/scripts/landingDatepicker.js"></script>
+<script type="text/javascript" src="/scripts/selectCity.js"></script>
+<script type="text/javascript" src="/scripts/constants/cities.js"></script>
+<script type="text/javascript" src="/scripts/constants/links.js"></script>
 <script type="text/javascript" src="/scripts/airdatepicker/air-datepicker.js"></script>

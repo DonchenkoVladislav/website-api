@@ -1,37 +1,26 @@
 //Чтобы этот метод работал, нужно повесить на элемент класс "startOpacity"
-const landing = 'landing'
-const siteName = 'siteName'
-const searchBlock = 'searchBlock'
-
-const mainMenu = 'mainMenu'
-const banersPlace = 'banersPlace'
-const footer = 'footer'
-const landingForm = 'landingForm'
-
-const halfSecond = 0.5
-const second = 1
-const oneAndHalfSecond = 1.5
-
-const startOpacity = 'startOpacity'
-
 window.onload = function() {
-    document.getElementById(landing).style = "animation: fastAppearance " + halfSecond + "s ease-in-out;";
-    document.getElementById(siteName).style = "animation: slideIn " + oneAndHalfSecond + "s ease-in-out";
-    document.getElementById(searchBlock).style = "animation: appearance " + second + "s ease-in-out;";
+    document.getElementById(SITE_NAME).style = "animation: slideIn " + TIME_TO_SLOW_ANIMATION + "s ease-in-out";
 
-    removeClassByTime(landing, startOpacity, halfSecond)
-    removeClassByTime(siteName, startOpacity, oneAndHalfSecond)
-    removeClassByTime(searchBlock, startOpacity, second)
+    removeClassByTime(SITE_NAME, START_OPACITY, TIME_TO_SLOW_ANIMATION)
 
-    document.getElementById(mainMenu).style = "animation: slideInTop " + oneAndHalfSecond + "s ease-in-out;";
-    document.getElementById(banersPlace).style = "animation: slideInLeft " + oneAndHalfSecond + "s ease-in-out";
-    document.getElementById(footer).style = "animation: slideInBottom " + oneAndHalfSecond + "s ease-in-out;";
-    document.getElementById(landingForm).style = "animation: fastAppearance " + halfSecond + "s ease-in-out;";
+    document.getElementById(MAIN_MENU).style = "animation: slideInTop " + TIME_TO_SLOW_ANIMATION + "s ease-in-out;";
+    document.getElementById(BANNERS_PLACE).style = "animation: slideInLeft " + TIME_TO_SLOW_ANIMATION + "s ease-in-out";
+    document.getElementById(FOOTER).style = "animation: slideInBottom " + TIME_TO_SLOW_ANIMATION + "s ease-in-out;";
+    document.getElementById(LANDING_FORM).style = "animation: fastAppearance " + TIME_TO_FAST_ANIMATION + "s ease-in-out;";
 
-    removeClassByTime(mainMenu, startOpacity, oneAndHalfSecond)
-    removeClassByTime(banersPlace, startOpacity, oneAndHalfSecond)
-    removeClassByTime(footer, startOpacity, oneAndHalfSecond)
-    removeClassByTime(landingForm, startOpacity, halfSecond)
+    removeClassByTime(MAIN_MENU, START_OPACITY, TIME_TO_SLOW_ANIMATION)
+    removeClassByTime(BANNERS_PLACE, START_OPACITY, TIME_TO_SLOW_ANIMATION)
+    removeClassByTime(FOOTER, START_OPACITY, TIME_TO_SLOW_ANIMATION)
+    removeClassByTime(LANDING_FORM, START_OPACITY, TIME_TO_FAST_ANIMATION)
+
+    // Обработка для десктопа
+    if (window.matchMedia("(min-width: 1000px)").matches) {
+        document.getElementById(LANDING).style = "animation: fastAppearance " + TIME_TO_FAST_ANIMATION + "s ease-in-out;";
+        document.getElementById(SEARCH_BLOCK).style = "animation: appearance " + MIDDLE_TIME + "s ease-in-out;";
+        removeClassByTime(SEARCH_BLOCK, START_OPACITY_DESCTOP, MIDDLE_TIME)
+        removeClassByTime(LANDING, START_OPACITY_DESCTOP, TIME_TO_FAST_ANIMATION)
+    }
 };
 
 function removeClassByTime(elementId, className, time) {

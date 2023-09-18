@@ -1,14 +1,83 @@
 <!DOCTYPE HTML>
-
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="/style/main.css">
     <link rel="stylesheet" href="/style/widget.css">
     <link rel="stylesheet" href="/style/footer.css">
+    <link rel="stylesheet" href="/style/animations.css">
+    <link rel="stylesheet" href="/style/menu.css">
+    <link rel="stylesheet" href="/style/catalod/catalog-main.css">
+    <link rel="stylesheet" href="/style/catalod/catalod-desctop.css">
+    <link rel="stylesheet" href="/style/catalod/catalog-mobile.css">
+    <link rel="stylesheet" href="/style/catalod/catalog-apartment.css">
     <link rel="stylesheet" href="/scripts/airdatepicker/air-datepicker.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
+<div id="catalog_main">
+    <section id="catalog-column">
+        <section id="catalog-header">
+            <section id="catalog-header-city" class="startOpacity">
+                <h3 id="catalog-header-cityName" th:text="${cityByServise}"></h3>
+                <article id="catalog-header-dates">
+                    <article id="catalog-header-dates-calendar">
+                        <img src="/images/icons/calendar.svg">
+                        <p>От</p>
+                        <p id="catalog-header-from" th:text="${fromByServise}"></p>
+                        <p>до</p>
+                        <p id="catalog-header-to" th:text="${toByServise}"></p>
+                    </article>
+                    <p id="catalog-header-days" th:text="${durationByServise}"></p>
+                </article>
+            </section>
+            <section id="catalog-filters">
+                <button class="filterButton onlyMobile startOpacity">
+                    <img src="/images/icons/filters.svg">
+                </button>
+                <button class="filterButton onlyMobile startOpacity">
+                    <img src="/images/icons/sorting.svg">
+                </button>
+                <button id="filterGuestsWidget" class="filterButton onlyMobile startOpacity">
+                    <article class="filterWidgetRow">
+                        <p>Взрослых:</p>
+                        <p id="adultsCount">2</p>
+                    </article>
+                    <article class="filterWidgetRow">
+                        <p>Детей:</p>
+                        <p id="kidsCount">2</p>
+                    </article>
+                </button>
+            </section>
+        </section>
+        <section id="catalog-body">
+            <section id="catalog-body-apartments">
+
+            </section>
+            <section id="footer" class="startOpacity">
+                <p class="catalog_footerText"></p>
+                <p class="catalog_footerText">
+                    Информация о ценах не является публичной офертой. После отправки Вами заявки наши
+                    менеджеры свяжутся с Вами и уточнят цену и условия
+                </p>
+            </section>
+        </section>
+    </section>
+    <section id="map" class="onlyDesctop">
+
+    </section>
+</div>
 </body>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=<ваш API-ключ>" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/map/map.js"></script>
+<script type="text/javascript" src="/scripts/catalog/catalogRequest.js"></script>
+<script type="text/javascript" src="/scripts/catalog/catalogConstructor.js"></script>
 <script type="text/javascript" src="/scripts/widget.js"></script>
 <script type="text/javascript" src="/scripts/airdatepicker/air-datepicker.js"></script>
+<script type="text/javascript" src="/scripts/constants/animationConstants.js"></script>
+<script type="text/javascript" src="/scripts/catalog/catalogAnimationsController.js"></script>
+<script type="text/javascript" src="/scripts/landingDatepicker.js"></script>
+<script type="text/javascript" src="/scripts/selectCity.js"></script>
+<script type="text/javascript" src="/scripts/constants/cities.js"></script>
+<script type="text/javascript" src="/scripts/constants/links.js"></script>
+

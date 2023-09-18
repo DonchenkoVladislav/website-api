@@ -25,25 +25,50 @@
     --mobile-font-size-l: 3.2vh;
 
     --font-size-standart: medium;
+    --mobile-font-size-header: 4vh;
     --mobile-font-size-standart: 2.4vh;
     --mobile-font-size-mini: 3.8vw;
 
     /*Общие цвета*/
     --alfa-button-color-light: rgba(255, 255, 255, 0.6);
     --menu-background-color: #4c4c4c82;
+    --primary-background-color: #f6f6f6;
 
     --telegram-color: #2ab6f6;
 
     --widget-background-color: #2b2b2b;
     --widget-place-on-landing-background-color: white;
 
+    --backgrount-gradient: linear-gradient(0deg, #171918, #383D43, #94A5C1, #FAF9FE);
+
+    --primari-box-shadow: 0 2px 10px rgba(0, 0, 0, .15);
+
+
+    /*Размеры основных элементов*/
     --mobile-bookibg-widget-wight: 80vw;
     --mobile-widget-wight: 90vw;
     --bookibg-widget-wight: 22vw;
 
+    --desctop-catalog-wight: 40vw;
+    --desctop-map-wight: 60vw;
+    --desctop-map-height: 100vh;
+
+    --mobile-catalog-wight: 100vw;
+    --mobile-map-height: 70vw;
+
+    --common-catalog-header-height: 100vh;
+
+    --catalog-img-size-atandart: 64px;
+    --catalog-img-size-mini: 48px;
+    --catalog-img-size-micro: 20px;
+
+    /*Отнисительные размеры*/
+    --relative-margin-standart: 5%;
+    --relative-margin-mini: 2%;
+
+    /*Время анимаций*/
     --time-fast: .3s;
     --time-standart: .6s;
-
 }
 
 @font-face {
@@ -83,4 +108,8 @@ a {
     border-radius: var(--border-radius-standart);
     color: aliceblue;
     padding: var(--inset-standart);
+}
+
+.startOpacity {
+    opacity: 0;
 }

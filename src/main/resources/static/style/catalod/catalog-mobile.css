@@ -1,0 +1,77 @@
+@media screen and (max-width: 1000px) {
+
+    h2 {
+        font-size: var(--mobile-font-size-header);
+        /*font-family: var(--font-family-headers);*/
+    }
+
+    h3 {
+        font-size: var(--mobile-font-size-standart);
+    }
+
+    p {
+        font-size: var(--mobile-font-size-mini);
+    }
+
+    .onlyDesctop {
+        display: none;
+    }
+
+    .onlyMobile {}
+
+    #catalog_main {
+        flex-direction: column;
+    }
+
+    #catalog-column {
+        width: var(--mobile-catalog-wight);
+    }
+
+    #map {
+        height: var(--mobile-map-height);
+        width: var(--mobile-catalog-wight);
+    }
+
+    #catalog-header, #catalog-body {
+        width: var(--mobile-catalog-wight);
+    }
+
+    #catalog-body {
+        border-radius: var(--border-radius-standart-mobile);
+
+    }
+
+    #catalog-column {
+        width: 100vw;
+    }
+
+    .filterButton {
+        border-radius: var(--border-radius-mini-mobile);
+    }
+
+    #filterGuestsWidget {
+        width: 50%;
+    }
+
+    .filterWidgetRow {
+        display: flex;
+        flex-direction: row;
+        width: 82%;
+        justify-content: space-between;
+    }
+
+    .filterWidgetRow p {
+        display: block;
+    }
+
+    #catalog-header-dates img {
+        width: var(--catalog-img-size-mini);
+        height: var(--catalog-img-size-mini);
+        margin-bottom: 1vh;
+    }
+
+    #catalog-header-dates-calendar {
+        width: 60%;
+    }
+
+}

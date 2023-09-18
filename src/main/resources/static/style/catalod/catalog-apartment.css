@@ -1,0 +1,63 @@
+.apartmentCard {
+    display: flex;
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    flex-direction: column;
+    width: 47%;
+    height: 500px;
+    margin: 10px 0;
+}
+
+.apartmentMainPhotoPlace {
+    /*margin-top: var(--inset-standart);*/
+    background-color: #f3f3f3;
+    display: block;
+    height: 70%;
+    width: 100%;
+}
+
+.photoElements {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.apartmentName, .apartmentPrice {
+    font-family: sans-serif;
+    margin-top: var(--inset-standart);
+}
+
+/* MOBILE */
+@media screen and (max-width: 1000px) {
+
+    .apartmentCard, .apartmentMainPhotoPlace, .photoElements {
+        border-radius: var(--border-radius-mini-mobile);
+    }
+
+    .apartmentName {
+        font-size: var(--mobile-font-size-mini);
+        font-weight: 600;
+    }
+
+    .apartmentPrice {
+        font-size: var(--mobile-font-size-standart);
+        font-weight: 600;
+    }
+
+}
+
+/* DESKTOP */
+@media screen and (min-width: 1000px) {
+
+    .apartmentCard, .apartmentMainPhotoPlace, .photoElements {
+        border-radius: var(--border-radius-standart);
+    }
+
+    .apartmentName {
+        font-size: var(--font-size-standart);
+    }
+
+    .apartmentPrice {
+        font-size: var(--font-size-standart);
+    }
+}
