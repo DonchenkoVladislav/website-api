@@ -16,6 +16,7 @@ const CATLOG_BODY = "catalog-body"
 const FOOTER = 'footer'
 
 //Время анимаций
+const TIME_TO_FASTEST_ANIMATION = 0.2
 const TIME_TO_FAST_ANIMATION = 0.5
 const MIDDLE_TIME = 1
 const TIME_TO_SLOW_ANIMATION = 1.5

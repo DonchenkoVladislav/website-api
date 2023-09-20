@@ -3,16 +3,14 @@
     /*justify-content: center;*/
     /*align-items: center;*/
     flex-direction: column;
-    width: 47%;
-    height: 500px;
-    margin: 10px 0;
+    margin: 30px 0;
 }
 
 .apartmentMainPhotoPlace {
     /*margin-top: var(--inset-standart);*/
     background-color: #f3f3f3;
     display: block;
-    height: 70%;
+    height: var(--mobile-card-closed-img);
     width: 100%;
 }
 
@@ -23,12 +21,56 @@
 }
 
 .apartmentName, .apartmentPrice {
-    font-family: sans-serif;
-    margin-top: var(--inset-standart);
+    position: absolute;
+    background: var(--alfa-button-color-light);
+    /*color: #434343;*/
+    color: var(--font-color-dark);
+    font-size: var(--mobile-font-size-mini);
+    backdrop-filter: blur(5px);
+    font-weight: 600;
+}
+
+.apartmentComboElement {
+    background: var(--alfa-button-color-light);
+    /*color: #434343;*/
+    color: var(--font-color-dark);
+    font-size: var(--mobile-font-size-mini);
+    backdrop-filter: blur(5px);
+    font-weight: 600;
+    margin-right: var(--inset-standart);
+    display: flex;
+}
+
+.apartmentName {
+    margin-top: var(--card-lable-inset);
+    margin-left: var(--card-lable-inset);
+}
+
+.apartmentPrice {
+    margin-top: calc(var(--card-lable-inset) + 10%);
+    margin-left: var(--card-lable-inset);
+}
+
+.apartmentComboElementValue {
+
+}
+
+.apartmentAtribute {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: calc(var(--card-lable-inset) + 30%);
+    margin-left: var(--card-lable-inset);
 }
 
 /* MOBILE */
 @media screen and (max-width: 1000px) {
+
+    .apartmentCard{
+        width: 95%;
+        height: var(--mobile-closed-card);
+    }
 
     .apartmentCard, .apartmentMainPhotoPlace, .photoElements {
         border-radius: var(--border-radius-mini-mobile);
@@ -44,10 +86,116 @@
         font-weight: 600;
     }
 
+    .apartmentName, .apartmentPrice{
+        padding: var(--inset-large);
+        border-radius: var(--border-radius-micro-mobile);
+    }
+
+    .apartmentComboElement {
+        padding: var(--inset-large);
+        font-size: var(--mobile-font-size-mini);
+        border-radius: var(--border-radius-micro-mobile);
+    }
+
+    .apartmentComboElement img {
+        margin-right: var(--inset-standart);
+        width: var(--catalog-img-size-mini);
+        height: var(--catalog-img-size-mini);
+    }
+
+    .apartmentAtributeInOpenCard {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .servicesCatalogRow {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        /*padding-left: var(--inset-large);*/
+        justify-content: space-between;
+    }
+
+    .additionstAtribute. .articleFullWight {
+        display: flex;
+        flex-direction: row;
+        padding: var(--inset-standart);
+        /*width: 45%;*/
+    }
+
+    .articleFullWight {
+        margin-top: var(--card-lable-inset);
+        width: 100%;
+    }
+
+    .checkbox-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: start;
+    }
+
+    .checkbox-container img {
+        margin-right: var(--inset-standart);
+        width: var(--catalog-img-size-mini);
+        height: var(--catalog-img-size-mini)
+    }
+
+    .serviseDesctiption {
+        font-size: var(--mobile-font-size-mini);
+        margin-left: 7%;
+    }
+
+    .catalogRowButton {
+        font-size: var(--mobile-font-size-mini);
+        background: var(--lite-back-color);
+        color: var(--font-color-dark);
+        border-radius: var(--border-radius-mini-mobile);
+        border: var(--none-border);
+        padding: var(--inset-large) 4vw;
+        height: fit-content;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .catalogRowButton span {
+        margin-left: var(--inset-large);
+        font-weight: 600;
+    }
+
+    .catalogRowButtonFullWight {
+        background: var(--widget-background-color);
+        color: var(--font-color-light);
+        border-radius: var(--border-radius-mini-mobile);
+        border: var(--none-border);
+        padding: var(--inset-large) 4vw;
+        height: fit-content;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .catalogRowButtonFullWight span {
+        font-size: var(--mobile-font-size-standart);
+        font-weight: 600;
+    }
 }
 
 /* DESKTOP */
 @media screen and (min-width: 1000px) {
+
+    .apartmentCard{
+        width: 45%;
+        height: 350px;
+    }
 
     .apartmentCard, .apartmentMainPhotoPlace, .photoElements {
         border-radius: var(--border-radius-standart);
@@ -59,5 +207,23 @@
 
     .apartmentPrice {
         font-size: var(--font-size-standart);
+    }
+
+    .apartmentName, .apartmentPrice {
+        padding: var(--inset-standart);
+        border-radius: var(--border-radius-standart);
+    }
+
+    .apartmentComboElement {
+        padding: var(--inset-standart);
+        font-size: var(--font-size-standart);
+        border-radius: var(--border-radius-standart);
+        margin-bottom: var(--inset-standart);
+    }
+
+    .apartmentComboElement img {
+        margin-right: var(--inset-standart);
+        width: var(--catalog-img-size-micro);
+        height: var(--catalog-img-size-micro);
     }
 }

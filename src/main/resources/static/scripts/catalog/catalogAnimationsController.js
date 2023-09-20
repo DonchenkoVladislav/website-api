@@ -1,5 +1,5 @@
 //Чтобы этот метод работал, нужно повесить на элемент класс "startOpacity"
-window.onload = function() {
+window.onload = function () {
 
     playAppearanceAnimation(CATLOG_HEADER, APPEARANCE, TIME_TO_SLOW_ANIMATION)
     playAppearanceAnimation(CATLOG_BODY, SLIDE_IN_BOTTOM, TIME_TO_FAST_ANIMATION)
@@ -16,7 +16,7 @@ function playConstructorAnimation(className, animationName, animationTime) {
     Array.from(document.getElementsByClassName(className)).reverse().forEach(item => {
         setTimeout(function () {
             item.style = "animation: " + animationName + " " + animationTime + "s ease-in-out;";
-            setTimeout(function() {
+            setTimeout(function () {
                 item.classList
                     .remove(START_OPACITY)
             }, animationTime * 1000)
@@ -29,13 +29,47 @@ function playConstructorAnimation(className, animationName, animationTime) {
 function playAppearanceAnimation(elementId, animationName, animationTime) {
     document.getElementById(elementId).style = "animation: " + animationName + " " + animationTime + "s ease-in-out;";
     removeClassByTime(elementId, START_OPACITY, animationTime)
-
 }
 
 function removeClassByTime(elementId, className, time) {
-    setTimeout(function() {
+    setTimeout(function () {
         document.getElementById(elementId)
             .classList
             .remove(className)
     }, time * 1000)
+}
+
+function addClassByTime(element, className, time) {
+    setTimeout(function () {
+        element.classList.add(className)
+    }, time * 1000)
+}
+
+//ТОЛЬКО ДЛЯ МОБИЛКИ
+
+//Проиграть анимацию изчезания для элемента
+function playDeleteAnimation(element, animationName, animationTime) {
+    element.style = "animation: " + animationName + " " + animationTime + "s ease-in-out;";
+    addClassByTime(element, START_OPACITY, animationTime)
+}
+
+
+//Проиграть анимацию появления для элемента. Нужно, чтобы на элементе висел класс .startOpacity
+function playAppearanceAnimationByElement(element, animationName, animationTime) {
+    element.style = "animation: " + animationName + " " + animationTime + "s ease-in-out;";
+    removeClassByElementThouthTime(element, START_OPACITY, animationTime)
+}
+
+function removeClassByElementThouthTime(element, className, time) {
+
+    setTimeout(function () {
+        element.classList.remove(className)
+    }, time * 1000)
+}
+
+function changeElementAtributeAfterAnimation(el, animationTime, cssKey, cssValue) {
+    setTimeout(function () {
+        el.style.removeProperty("animation")
+        el.style = cssKey + ": " + cssValue + ";"
+    }, animationTime * 1000)
 }

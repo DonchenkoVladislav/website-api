@@ -3,11 +3,15 @@
     --border-radius-standart: 10px;
     --border-radius-standart-mobile: 3vh;
     --border-radius-mini-mobile: 1.5vh;
+    --border-radius-micro-mobile: 15px;
     --none-border: none;
 
     /*Отступы*/
     --inset-standart: 10px;
+    --inset-large: 20px;
     --mobile-widget-inset: 2vh;
+
+    --card-lable-inset: 3%;
 
     /*Шрифт*/
     --font-family: sans-serif;
@@ -30,9 +34,12 @@
     --mobile-font-size-mini: 3.8vw;
 
     /*Общие цвета*/
+    /*#ffffffd9*/
     --alfa-button-color-light: rgba(255, 255, 255, 0.6);
     --menu-background-color: #4c4c4c82;
     --primary-background-color: #f6f6f6;
+
+    --lite-back-color: rgb(229 229 229 / 60%);
 
     --telegram-color: #2ab6f6;
 
@@ -42,7 +49,6 @@
     --backgrount-gradient: linear-gradient(0deg, #171918, #383D43, #94A5C1, #FAF9FE);
 
     --primari-box-shadow: 0 2px 10px rgba(0, 0, 0, .15);
-
 
     /*Размеры основных элементов*/
     --mobile-bookibg-widget-wight: 80vw;
@@ -61,6 +67,14 @@
     --catalog-img-size-atandart: 64px;
     --catalog-img-size-mini: 48px;
     --catalog-img-size-micro: 20px;
+
+    /*Открытая и закрытая карточка объекта в каталоге*/
+    /*Используются в методе tapOnCard() как String*/
+    --mobile-closed-card: 450px;
+    --mobile-opened-card: 950px;
+    /*Изображение открытой и закрытой карточки объекта в каталоге*/
+    --mobile-card-closed-img: 450px;
+    --mobile-card-opened-img: 550px;
 
     /*Отнисительные размеры*/
     --relative-margin-standart: 5%;
