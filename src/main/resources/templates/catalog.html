@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="/style/catalod/catalod-desctop.css">
     <link rel="stylesheet" href="/style/catalod/catalog-mobile.css">
     <link rel="stylesheet" href="/style/catalod/catalog-apartment.css">
+    <link rel="stylesheet" href="/style/catalod/catalog-map.css">
     <link rel="stylesheet" href="/scripts/airdatepicker/air-datepicker.css">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8; width=device-width, initial-scale=1" name="viewport"> />
 </head>
 <body>
 <div id="catalog_main">
@@ -31,22 +32,43 @@
                 </article>
             </section>
             <section id="catalog-filters">
-                <button class="filterButton onlyMobile startOpacity">
-                    <img src="/images/icons/filters.svg">
-                </button>
-                <button class="filterButton onlyMobile startOpacity">
-                    <img src="/images/icons/sorting.svg">
-                </button>
-                <button id="filterGuestsWidget" class="filterButton onlyMobile startOpacity">
-                    <article class="filterWidgetRow">
-                        <p>Взрослых:</p>
-                        <p id="adultsCount">2</p>
-                    </article>
-                    <article class="filterWidgetRow">
-                        <p>Детей:</p>
-                        <p id="kidsCount">2</p>
-                    </article>
-                </button>
+                <article class="additionstAtribute filterButton startOpacity">
+                    <button class="catalogRowButton">
+                        <img src="/images/icons/sorting.svg">
+                    </button>
+                </article>
+                <article class="additionstAtribute filterButton startOpacity">
+                    <button class="catalogRowButton">
+                        <img src="/images/icons/filters.svg">
+                        <span>Фильтры</span>
+                    </button>
+                </article>
+                <article class="additionstAtribute filterButton startOpacity">
+                    <button class="catalogRowButton">
+                        <img src="/images/icons/guests.svg">
+                        <span>Гостей: 3</span>
+                    </button>
+                </article>
+
+<!--                Удалить эти фильтры-->
+
+<!--                <button class="filterButton onlyMobile startOpacity">-->
+<!--                    <img src="/images/icons/filters.svg">-->
+<!--                </button>-->
+<!--                <button class="filterButton onlyMobile startOpacity">-->
+<!--                    <img src="/images/icons/sorting.svg">-->
+<!--                </button>-->
+<!--                <button id="filterGuestsWidget" class="filterButton onlyMobile startOpacity">-->
+<!--                    <article class="filterWidgetRow">-->
+<!--                        <p>Взрослых:</p>-->
+<!--                        <p id="adultsCount">2</p>-->
+<!--                    </article>-->
+<!--                    <article class="filterWidgetRow">-->
+<!--                        <p>Детей:</p>-->
+<!--                        <p id="kidsCount">2</p>-->
+<!--                    </article>-->
+<!--                </button>-->
+
             </section>
         </section>
         <section id="catalog-body">
@@ -61,9 +83,6 @@
                 </p>
             </section>
         </section>
-    </section>
-    <section id="map" class="onlyDesctop">
-
     </section>
 </div>
 </body>

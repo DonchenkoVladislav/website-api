@@ -11,16 +11,12 @@ p {
 }
 
 img {
-    width: var(--catalog-img-size-atandart);
-    height: var(--catalog-img-size-atandart);
+    width: var(--catalog-img-size-mini);
+    height: var(--catalog-img-size-mini);
 }
 
 #catalog_main {
     display: flex;
-}
-
-#map {
-    position: absolute;
 }
 
 #catalog-column {
@@ -31,16 +27,17 @@ img {
     display: flex;
     flex-direction: column;
     top: 0;
-    height: var(--common-catalog-header-height);
-    z-index: 0;
-    position: absolute;
-    background: var(--primary-background-color);
+    height: fit-content;
+    padding-bottom: var(--inset-large);
+    z-index: 2;
+    position: fixed;
+    background: white;
+    /*background: var(--primary-background-color);*/
 }
 
 #catalog-body {
     display: flex;
     flex-direction: column;
-    top: 19vh;
     z-index: 1;
     position: relative;
     background: white;
@@ -50,24 +47,15 @@ img {
 #catalog-filters {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     width: 100%;
 }
 
 .filterButton {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: var(--relative-margin-mini);
-    width: 20%;
-    height: 6vh;
-    background: white;
-    box-shadow: var(--primari-box-shadow);
-    border: var(--none-border);
 }
 
 .filterButton h2, .filterButton p {
-    margin: 0;
+    margin: 0 var(--inset-large);
     text-align: center;
 }
 
@@ -108,9 +96,9 @@ img {
 
 #catalog-body-apartments {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     min-height: fit-content;
 }

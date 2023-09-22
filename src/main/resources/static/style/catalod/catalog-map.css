@@ -1,0 +1,31 @@
+/* MOBILE */
+@media screen and (max-width: 1000px) {
+
+    #map {
+        z-index: 0;
+        position: fixed;
+        top: var(--common-catalog-header-height);
+        /*width: 430px;*/
+        /*height: 320px;*/
+        border: none;
+        margin: 0;
+        padding: 0;
+        background-color:#ccc;
+        overflow:hidden;
+    }
+
+    .mobileMap{
+        width: 100vw !important;
+        height: 80vh !important;
+    }
+}
+
+/* DESKTOP */
+@media screen and (min-width: 1000px) {
+
+    #map {
+        height: var(--desctop-map-height);
+        width: var(--desctop-map-wight);
+        left: var(--desctop-catalog-wight);
+    }
+}

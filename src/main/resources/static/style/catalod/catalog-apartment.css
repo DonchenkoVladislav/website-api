@@ -3,7 +3,8 @@
     /*justify-content: center;*/
     /*align-items: center;*/
     flex-direction: column;
-    margin: 30px 0;
+    /*margin: 30px 0;*/
+    margin-bottom: 50px;
 }
 
 .apartmentMainPhotoPlace {
@@ -67,6 +68,19 @@
 /* MOBILE */
 @media screen and (max-width: 1000px) {
 
+    #downArrow {
+        width: 100%;
+        text-align: center;
+        height: fit-content;
+        font-size: var(--mobile-font-size-mini);
+        color: var(--font-color-dark-label);
+        margin-bottom: 5px;
+    }
+
+    .catalog_body_top {
+        margin-top: 40vh;
+    }
+
     .apartmentCard{
         width: 95%;
         height: var(--mobile-closed-card);
@@ -104,6 +118,7 @@
     }
 
     .apartmentAtributeInOpenCard {
+        margin-top: var(--inset-large);
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -186,6 +201,64 @@
     .catalogRowButtonFullWight span {
         font-size: var(--mobile-font-size-standart);
         font-weight: 600;
+    }
+
+    .popUp {
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        width: 100vw;
+        height: 100vh;
+        z-index: 9;
+        position: fixed;
+        top: 0;
+        /*background-color: #4646464d;*/
+    }
+
+    .popUpInner {
+        display: flex;
+        flex-direction: column;
+        padding: var(--card-lable-inset);
+        width: 90%;
+        min-height: 50%;
+        background-color: white;
+        box-shadow: 0 0 100px rgba(0, 0, 0);
+        border-radius: var(--border-radius-mini-mobile);
+        margin-bottom: var(--card-lable-inset);
+    }
+
+    .servicestable {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        flex-wrap: wrap;
+        width: 90%;
+    }
+
+    .servicestable .apartmentComboElement img {
+        width: var(--catalog-img-size-standart);
+        height: var(--catalog-img-size-standart);
+    }
+
+    .servicesTableValue {
+        margin-left: var(--inset-large);
+        font-weight: 200;
+        font-size: var(--mobile-font-size-medium);
+    }
+
+    .cerviceAtribureList {
+        width: 40%;
+    }
+
+    .closePopUpButton {
+        position: relative;
+        top: 5%;
+        left: 85%;
+    }
+
+    .closePopUpButton .catalogRowButton img {
+        width: var(--catalog-img-size-mini);
+        height: var(--catalog-img-size-mini);
     }
 }
 

@@ -7,11 +7,42 @@ function createApartmentList(response, mainPhotoList) {
 
     let catalogPlace = document.getElementById('catalog-body-apartments')
 
-    console.log("Длина")
-    console.log(mainPhotoList.length)
+    if (window.matchMedia("(max-width: 1000px)").matches) {
+        let catalogBody = document.getElementById('catalog-body')
+
+        let cardIsFullScreen = false;
+
+        let downArrow = createElement('span', 'empty', '▼')
+        downArrow.id = 'downArrow'
+
+        downArrow.addEventListener('click', function () {
+            // downArrow.style = 'transform: rotate(180deg);'
+            // cardIsFullScreen = !cardIsFullScreen;
+
+            downArrow.remove()
+
+            // if(cardIsFullScreen) {
+                catalogBody.style = "animation: moveCatalogDown " + TIME_TO_FASTEST_ANIMATION + "s ease-in-out;"
+                // catalogBody.classList.add('catalog_body_top')
+                setTimeout(function () {
+                    catalogBody.classList.add('catalog_body_top')
+                }, TIME_TO_FASTEST_ANIMATION * 1000)
+            // } else {
+                // downArrow.style = 'transform: rotate(0deg);'
+                // catalogBody.classList.remove('catalog_body_top')
+            // }
+        })
+
+        catalogPlace.prepend(downArrow)
+    }
+
+    let coordinateList = []
 
     response.items
         .forEach(item => {
+
+            coordinateList.push(item.coordinates.split(", "))
+
             //Создаем карточку объекта
             let card = document.createElement('section')
             card.classList.add('apartmentCard')
@@ -79,11 +110,13 @@ function createApartmentList(response, mainPhotoList) {
 
             // Обработка тапа для мобилки
             if (window.matchMedia("(max-width: 1000px)").matches) {
-                tapOnCard(card, item)
+                tapOnCard(mainPhotoPlace, item)
             }
 
             catalogPlace.append(card)
         })
+
+    createClustersOnMap(myMap, coordinateList)
 }
 
 function createElement(tag, className, responseField) {
@@ -94,14 +127,19 @@ function createElement(tag, className, responseField) {
     return element;
 }
 
-function createComboElement(iconName, valueClassName, responseField) {
+function createComboElement(iconName, valueClassName, responseField, iconPath) {
 
     let imgElement = createElement('img', 'icon', '')
     let valueElement = createElement('span', valueClassName, responseField)
     let comboElement = createElement('article', 'apartmentComboElement', '')
 
-    if (iconName !== 'none') {
+    if (iconName !== 'none' && iconPath === undefined) {
         imgElement.src = '/images/icons/' + iconName;
+        imgElement.alt = iconName;
+        comboElement.append(imgElement, valueElement)
+    }
+    if (iconPath !== undefined) {
+        imgElement.src = iconPath + iconName;
         imgElement.alt = iconName;
         comboElement.append(imgElement, valueElement)
     } else {
@@ -116,10 +154,8 @@ function tapOnCard(el, item) {
 
         console.log('Произошло событие c ' + el.id, event.type)
 
-        let cardImagePlace = el.firstElementChild
-
         playChangeHeightAnimation(
-            el,
+            el.parentElement,
             "increaseScale",
             "decreaseScale",
             TIME_TO_FASTEST_ANIMATION,
@@ -131,7 +167,7 @@ function tapOnCard(el, item) {
         )
 
         playChangeHeightAnimation(
-            cardImagePlace,
+            el,
             "increaseScaleImg",
             "decreaseScaleImg",
             TIME_TO_FASTEST_ANIMATION,
@@ -165,13 +201,15 @@ function playChangeHeightAnimation(el, openAnim, closedAnim, animationTime, cssK
         })
 
         //Скрываем нижнюю строку с атрибутами
-        if (respObj !== null)  {
+        if (respObj !== null) {
             let atributeRowInOpenCardList = document.getElementsByClassName(FULL_ATRIBUTE_CAtALOG_CLASS);
 
             if (atributeRowInOpenCardList.length > 0) {
                 Array.from(atributeRowInOpenCardList).forEach(row => {
                     playDeleteAnimation(row, "fastSlideOutLeft", animationTime)
-                    setTimeout(function () {row.remove()}, animationTime * 1000)
+                    setTimeout(function () {
+                        row.remove()
+                    }, animationTime * 1000)
                 })
             }
 
@@ -220,10 +258,11 @@ function getCardChildren(el) {
 function createAtributeRowInOpenCard(item) {
     //Генерим название квартиры
     let apartmentName = createComboElement(
-        'space.svg', 'apartmentComboElementValue', item.name)
+        'none', 'apartmentComboElementValue', item.name)
     //Генерим стоимость квартиры
     let apartmentPrice = createComboElement(
-        'space.svg', 'apartmentComboElementValue', item.summary + " ₽")
+        'none', 'apartmentComboElementValue', item.summary + " ₽")
+    apartmentPrice.style = 'border: solid;'
     //Площадь
     let apartmentSpace = createComboElement(
         'space.svg', 'apartmentComboElementValue', item.space + " м²")
@@ -277,7 +316,6 @@ function createOpenAtributeRow(servicesStr) {
     serviceList.forEach(service => {
         let imgName = service[0]
         let servicesImg = createIconUrlChecked(imgName);
-        console.log(splitServisesBySpace(servicesStr))
 
         if (splitServisesBySpace(servicesStr).includes(imgName)) {
             servicesImgList.push(servicesImg)
@@ -292,7 +330,12 @@ function createOpenAtributeRow(servicesStr) {
             servicesImgList.slice(0, 2),
             'Удобства',
             CATALOG_ROW_BUTTON_CLASS,
-            null
+            null,
+            () => {
+                createServicesPopUp(
+                    splitServisesBySpace(servicesStr)
+                )
+            }
         ),
         createButton(
             ['/images/icons/map.svg'],
@@ -316,7 +359,7 @@ function createOpenAtributeRow(servicesStr) {
     return servicesCatalogRow
 }
 
-function createButton(images, buttonText, buttonClass, articleClass) {
+function createButton(images, buttonText, buttonClass, articleClass, action) {
     const article = document.createElement('article');
 
     articleClass === null
@@ -327,8 +370,14 @@ function createButton(images, buttonText, buttonClass, articleClass) {
     const button = document.createElement('button');
     button.className = buttonClass;
 
+    if (action !== undefined) {
+        article.addEventListener('click', function () {
+            action()
+        });
+    }
+
     // Создаем элементы изображений и добавляем их внутрь кнопки
-    if (images !== null){
+    if (images !== null) {
         images.forEach(imageSrc => {
             const img = document.createElement('img');
             img.src = imageSrc;
@@ -337,7 +386,7 @@ function createButton(images, buttonText, buttonClass, articleClass) {
     }
 
     // Создаем элемент с текстом кнопки и добавляем его внутрь кнопки
-    if (buttonText !== ''){
+    if (buttonText !== '') {
         const span = document.createElement('span');
         span.textContent = buttonText;
         button.appendChild(span);
@@ -347,4 +396,75 @@ function createButton(images, buttonText, buttonClass, articleClass) {
     article.appendChild(button);
 
     return article;
+}
+
+function createServicesPopUp(apartmentServicesList) {
+    let servicesPopUpInner = createElement('div', 'popUpInner', '')
+    let servicesInner = createElement('article', 'servicestable', '')
+
+    console.log("Сервисы из объекта: " + apartmentServicesList)
+
+
+    serviceList.forEach(service => {
+
+        let serviceName = service[0]
+        let srviceDescription = service[1]
+
+        console.log("Сервис из списка: " + serviceName)
+        if (apartmentServicesList.includes(serviceName)) {
+
+
+            console.log("Условие выполнено")
+
+            let s = createComboElement(
+                serviceName + SVG,
+                'servicesTableValue',
+                srviceDescription,
+                '/images/serviceIcons/'
+            );
+            s.classList.add('cerviceAtribureList')
+
+            servicesInner.append(s)
+        }
+    })
+
+    servicesPopUpInner.append(
+        createButton(
+            ['images/icons/cancel.svg'],
+            '',
+            CATALOG_ROW_BUTTON_CLASS,
+            'closePopUpButton',
+            () => {
+                createServicesPopUp(
+                    closePopUp()
+                )
+            }
+        ),
+        servicesInner
+    )
+
+    createPopUp(servicesPopUpInner)
+}
+
+function createPopUp(innerElement) {
+    let popUpSpaser = document.getElementsByTagName('body')[0]
+
+    let popUp = createElement('div', 'popUp', '')
+    popUp.classList.add(START_OPACITY)
+
+    popUp.append(innerElement)
+    popUpSpaser.append(popUp)
+
+    playAppearanceAnimationByElement(popUp, SLIDE_IN_BOTTOM, TIME_TO_FASTEST_ANIMATION)
+}
+
+function closePopUp() {
+    let popUpList = document.getElementsByClassName('popUp')
+
+    Array.from(popUpList).forEach(popUp => {
+        playDeleteAnimation(popUp, SLIDE_OUT_BOTTOM, TIME_TO_FASTEST_ANIMATION)
+        setTimeout(function () {
+            popUp.remove()
+        }, TIME_TO_FASTEST_ANIMATION * 1000)
+    })
 }

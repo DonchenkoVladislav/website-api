@@ -186,3 +186,12 @@
         margin-top: calc(var(--card-lable-inset) + 60%);
     }
 }
+
+@keyframes moveCatalogDown {
+    0% {
+        margin-top: 0;
+    }
+    100% {
+        margin-top: 40vh;
+    }
+}

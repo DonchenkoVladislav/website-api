@@ -14,17 +14,12 @@
         width: var(--desctop-catalog-wight);
     }
 
-    #map {
-        height: var(--desctop-map-height);
-        width: var(--desctop-map-wight);
-        left: var(--desctop-catalog-wight);
-    }
-
     #catalog-header, #catalog-body {
         width: var(--desctop-catalog-wight);
     }
 
     #catalog-body {
+        top: 19vh;
         border-radius: var(--border-radius-standart);
     }
 

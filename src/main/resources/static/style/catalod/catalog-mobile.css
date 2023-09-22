@@ -27,18 +27,17 @@
         width: var(--mobile-catalog-wight);
     }
 
-    #map {
-        height: var(--mobile-map-height);
-        width: var(--mobile-catalog-wight);
-    }
-
     #catalog-header, #catalog-body {
         width: var(--mobile-catalog-wight);
     }
 
-    #catalog-body {
-        border-radius: var(--border-radius-standart-mobile);
+    #catalog-header {
+        margin-top: 0;
+    }
 
+    #catalog-body {
+        top: 39vh;
+        border-radius: var(--border-radius-standart-mobile);
     }
 
     #catalog-column {
@@ -46,11 +45,12 @@
     }
 
     .filterButton {
-        border-radius: var(--border-radius-mini-mobile);
     }
 
     #filterGuestsWidget {
-        width: 50%;
+        width: fit-content;
+        display: flex;
+        justify-content: space-between;
     }
 
     .filterWidgetRow {
