@@ -11,8 +11,8 @@ p {
 }
 
 img {
-    width: var(--catalog-img-size-mini);
-    height: var(--catalog-img-size-mini);
+    width: var(--catalog-img-size-standart);
+    height: var(--catalog-img-size-standart);
 }
 
 #catalog_main {
@@ -28,7 +28,7 @@ img {
     flex-direction: column;
     top: 0;
     height: fit-content;
-    padding-bottom: var(--inset-large);
+    padding-bottom: var(--inset-standart);
     z-index: 2;
     position: fixed;
     background: white;
@@ -55,7 +55,7 @@ img {
 }
 
 .filterButton h2, .filterButton p {
-    margin: 0 var(--inset-large);
+    margin: 0 var(--inset-standart);
     text-align: center;
 }
 

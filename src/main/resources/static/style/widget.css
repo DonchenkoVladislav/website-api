@@ -30,7 +30,7 @@
 
 .widgetHeader h1 {
     padding: 1vh 0 0 1vh;
-    font-size: var(--mobile-font-size-standart);
+    font-size: var(--font-size-standart);
     font-family: var(--font-family-headers);
     color: var(--font-color-light);
     margin: 0;
@@ -43,7 +43,7 @@
 
 .widgetHeaderLight h1 {
     padding: 1vh 0 0 1vh;
-    font-size: var(--mobile-font-size-standart);
+    font-size: var(--font-size-standart);
     font-family: var(--font-family-headers);
     color: var(--font-color-dark);
     margin: 0;
@@ -57,12 +57,12 @@
 .widgetText p {
     margin: 2vw 34% 0 0;
     padding: 1vh;
-    font-size: x-large;
+    font-size: var(--font-size-mini);
     color: var(--font-color-light);
 }
 
 .widgetButton {
-    padding: 20px;
+    padding: var(--inset-standart);
     display: flex;
     justify-content: end;
 }
@@ -72,19 +72,20 @@
     flex-direction: row;
     background-color: white;
     color: var(--font-color-dark);
-    width: 384px;
-    height: 72px;
-    /*border-radius: var(--border-radius-standart-mobile);*/
-    border-radius: 1vh;
+    border-radius: 10px;
     align-items: center;
-    padding: var(--inset-standart);
-    padding-left: 5px;
-    border-color: var(--telegram-color);
+    padding-right: var(--inset-standart);
+    padding-left: var(--inset-standart);
 }
 
 .telegramButtonMobile p {
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 40px;
+    font-size: var(--font-size-standart);
     color: var(--font-color-dark);
+}
+
+.telegramButtonMobile img {
+    width: var(--catalog-img-size-large);
+    height: var(--catalog-img-size-large);
 }

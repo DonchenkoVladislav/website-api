@@ -1,6 +1,5 @@
 package bookingvkaliningrade.booking.controllers;
 
-import org.springframework.core.io.Resource;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static bookingvkaliningrade.booking.services.CatalogPageServise.getServiseCatalogPage;
@@ -49,7 +47,35 @@ public class LandingController {
     public @ResponseBody ResponseEntity<Object> getMainPhoto(
             @RequestParam("mainImageId") String mainPhotoidList) {
 
-        return getEmployeeMainPhotoss(mainPhotoidList);
+        return getEmployeeMainPhotos(mainPhotoidList);
+    }
+
+    // Отправить все фото для отображение на раскрытой карточке объекта
+    @RequestMapping(value = "/upload-all-photos-to-object", method = RequestMethod.GET)
+    public @ResponseBody ResponseEntity<Object> getAllPhotoToObject(
+            @RequestParam("apartmentId") String apartmentId) {
+
+        return getEmployeeAllPhotoToObject(apartmentId);
+    }
+
+    @GetMapping("/apartment")
+    public String getApartmentPage(
+            @RequestParam("apartmentId") String apartmentId,
+            @RequestParam("apartmentDate") String apartmentDate,
+            Model page) {
+
+        page.addAttribute("apartmentIdElement", apartmentId);
+        page.addAttribute("apartmentDateElement", apartmentDate);
+
+        return "apartment";
+    }
+
+    @GetMapping("/apartment-info")
+    public @ResponseBody ResponseEntity<Object> getApartmentInfo(
+            @RequestParam("apartmentId") String apartmentId,
+            @RequestParam("apartmentDate") String apartmentDate) {
+
+        return getFullApartmentInfoByIdAndDate(apartmentId, apartmentDate);
     }
 
     private static ResponseEntity<Object> getEmployees(String city, String date) {
@@ -60,9 +86,25 @@ public class LandingController {
         return restTemplate.exchange(url, HttpMethod.POST, null, Object.class);
     }
 
-    private static ResponseEntity<Object> getEmployeeMainPhotoss(String mainPhotoidList) {
+    private static ResponseEntity<Object> getEmployeeMainPhotos(String mainPhotoidList) {
 
         final String url = String.format(HOST + "/upload-main-photos?mainImageId=%s", mainPhotoidList);
+        RestTemplate restTemplate = new RestTemplate();
+
+        return restTemplate.exchange(url, HttpMethod.GET, null, Object.class);
+    }
+
+    private static ResponseEntity<Object> getEmployeeAllPhotoToObject(String apartmentId) {
+
+        final String url = String.format(HOST + "/upload-all-photos-to-object?apartmentId=%s", apartmentId);
+        RestTemplate restTemplate = new RestTemplate();
+
+        return restTemplate.exchange(url, HttpMethod.GET, null, Object.class);
+    }
+
+    private static ResponseEntity<Object> getFullApartmentInfoByIdAndDate(String apartmentId, String apartmentDate) {
+
+        final String url = String.format(HOST + "/apartment-info?apartmentId=%s&apartmentDate=%s", apartmentId, apartmentDate);
         RestTemplate restTemplate = new RestTemplate();
 
         return restTemplate.exchange(url, HttpMethod.GET, null, Object.class);

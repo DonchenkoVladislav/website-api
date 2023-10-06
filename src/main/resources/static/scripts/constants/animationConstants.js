@@ -22,6 +22,7 @@ const MIDDLE_TIME = 1
 const TIME_TO_SLOW_ANIMATION = 1.5
 
 const START_OPACITY = 'startOpacity'
+const NONE_DISPLAY = 'noneDisplay'
 const START_OPACITY_DESCTOP = 'startOpacityDesctop'
 
 //Название анимаций
@@ -34,6 +35,7 @@ const SLIDE_IN_LEFT = "slideInLeft"
 const FAST_SLIDE_IN_BOTTOM = "fastSlideInBottom"
 
 const SLIDE_OUT_BOTTOM = "slideOutBottom"
+const SLIDE_OUT = "fastSlideOutLeft"
 
 const APPEARANCE = "appearance"
 const FAST_APPEARANCE = "fastAppearance"

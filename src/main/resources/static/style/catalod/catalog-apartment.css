@@ -4,20 +4,21 @@
     /*align-items: center;*/
     flex-direction: column;
     /*margin: 30px 0;*/
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .apartmentMainPhotoPlace {
     /*margin-top: var(--inset-standart);*/
     background-color: #f3f3f3;
-    display: block;
+    display: inline-grid;
     height: var(--mobile-card-closed-img);
     width: 100%;
+    min-height: var(--mobile-card-closed-img);
 }
 
 .photoElements {
     width: 100%;
-    height: 100%;
+    height: inherit;
     object-fit: cover;
 }
 
@@ -26,7 +27,7 @@
     background: var(--alfa-button-color-light);
     /*color: #434343;*/
     color: var(--font-color-dark);
-    font-size: var(--mobile-font-size-mini);
+    font-size: var(--font-size-mini);
     backdrop-filter: blur(5px);
     font-weight: 600;
 }
@@ -35,7 +36,7 @@
     background: var(--alfa-button-color-light);
     /*color: #434343;*/
     color: var(--font-color-dark);
-    font-size: var(--mobile-font-size-mini);
+    font-size: var(--font-size-mini);
     backdrop-filter: blur(5px);
     font-weight: 600;
     margin-right: var(--inset-standart);
@@ -61,18 +62,32 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-top: calc(var(--card-lable-inset) + 30%);
+    /*var(--card-lable-inset) отвечает за отступы надписей сверху и снизу закрытой карточки объекта*/
+    margin-top: calc(var(--mobile-card-closed-img) - var(--catalog-img-size-standart) - var(--inset-standart)*2 - var(--card-lable-inset));
     margin-left: var(--card-lable-inset);
 }
 
 /* MOBILE */
 @media screen and (max-width: 1000px) {
 
+    /*Классы открытой карточки объекта*/
+    .increaseCard {
+        height: var(--mobile-opened-card) !important;
+    }
+
+    .increaseImg {
+        height: var(--mobile-card-opened-img) !important;
+    }  /*Классы открытой карточки объекта*/
+
+    .decreaseScale {
+        scale: 0.95;
+    }
+
     #downArrow {
         width: 100%;
         text-align: center;
         height: fit-content;
-        font-size: var(--mobile-font-size-mini);
+        font-size: var(--font-size-mini);
         color: var(--font-color-dark-label);
         margin-bottom: 5px;
     }
@@ -91,34 +106,34 @@
     }
 
     .apartmentName {
-        font-size: var(--mobile-font-size-mini);
+        font-size: var(--font-size-mini);
         font-weight: 600;
     }
 
     .apartmentPrice {
-        font-size: var(--mobile-font-size-standart);
+        font-size: var(--font-size-standart);
         font-weight: 600;
     }
 
     .apartmentName, .apartmentPrice{
-        padding: var(--inset-large);
+        padding: var(--inset-standart);
         border-radius: var(--border-radius-micro-mobile);
     }
 
     .apartmentComboElement {
-        padding: var(--inset-large);
-        font-size: var(--mobile-font-size-mini);
+        padding: var(--inset-standart);
+        font-size: var(--font-size-mini);
         border-radius: var(--border-radius-micro-mobile);
     }
 
     .apartmentComboElement img {
         margin-right: var(--inset-standart);
-        width: var(--catalog-img-size-mini);
-        height: var(--catalog-img-size-mini);
+        width: var(--catalog-img-size-standart);
+        height: var(--catalog-img-size-standart);
     }
 
     .apartmentAtributeInOpenCard {
-        margin-top: var(--inset-large);
+        margin-top: var(--inset-standart);
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -132,7 +147,7 @@
         align-items: center;
         flex-wrap: wrap;
         width: 100%;
-        /*padding-left: var(--inset-large);*/
+        /*padding-left: var(--inset-standart);*/
         justify-content: space-between;
     }
 
@@ -157,22 +172,22 @@
 
     .checkbox-container img {
         margin-right: var(--inset-standart);
-        width: var(--catalog-img-size-mini);
-        height: var(--catalog-img-size-mini)
+        width: var(--catalog-img-size-standart);
+        height: var(--catalog-img-size-standart)
     }
 
     .serviseDesctiption {
-        font-size: var(--mobile-font-size-mini);
+        font-size: var(--font-size-mini);
         margin-left: 7%;
     }
 
     .catalogRowButton {
-        font-size: var(--mobile-font-size-mini);
+        font-size: var(--font-size-mini);
         background: var(--lite-back-color);
         color: var(--font-color-dark);
         border-radius: var(--border-radius-mini-mobile);
         border: var(--none-border);
-        padding: var(--inset-large) 4vw;
+        padding: var(--inset-standart) 4vw;
         height: fit-content;
         display: flex;
         flex-direction: row;
@@ -180,7 +195,7 @@
     }
 
     .catalogRowButton span {
-        margin-left: var(--inset-large);
+        margin-left: var(--inset-standart);
         font-weight: 600;
     }
 
@@ -189,7 +204,7 @@
         color: var(--font-color-light);
         border-radius: var(--border-radius-mini-mobile);
         border: var(--none-border);
-        padding: var(--inset-large) 4vw;
+        padding: var(--inset-standart) 4vw;
         height: fit-content;
         width: 100%;
         display: flex;
@@ -199,7 +214,7 @@
     }
 
     .catalogRowButtonFullWight span {
-        font-size: var(--mobile-font-size-standart);
+        font-size: var(--font-size-standart);
         font-weight: 600;
     }
 
@@ -241,9 +256,9 @@
     }
 
     .servicesTableValue {
-        margin-left: var(--inset-large);
+        margin-left: var(--inset-standart);
         font-weight: 200;
-        font-size: var(--mobile-font-size-medium);
+        font-size: var(--font-size-standart);
     }
 
     .cerviceAtribureList {
@@ -257,8 +272,8 @@
     }
 
     .closePopUpButton .catalogRowButton img {
-        width: var(--catalog-img-size-mini);
-        height: var(--catalog-img-size-mini);
+        width: var(--catalog-img-size-standart);
+        height: var(--catalog-img-size-standart);
     }
 }
 
@@ -296,7 +311,7 @@
 
     .apartmentComboElement img {
         margin-right: var(--inset-standart);
-        width: var(--catalog-img-size-micro);
-        height: var(--catalog-img-size-micro);
+        width: var(--catalog-img-size-standart);
+        height: var(--catalog-img-size-standart);
     }
 }

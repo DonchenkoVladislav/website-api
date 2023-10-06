@@ -542,7 +542,7 @@
     --adp-mobile-font-size: 16px;
     --adp-mobile-nav-height: 40px;
     --adp-mobile-width: 320px;
-    --adp-mobile-day-cell-height: 86px;
+    --adp-mobile-day-cell-height: 48px;
     --adp-mobile-month-cell-height: 48px;
     --adp-mobile-year-cell-height: 64px
 }
@@ -615,7 +615,7 @@
 @media screen and (max-width: 1000px) {
     .air-datepicker {
         width: var(--mobile-bookibg-widget-wight);
-        font-size: var(--mobile-font-size-standart);
+        font-size: var(--font-size-standart);
     }
 
     .air-datepicker-body--cells.-days- {
@@ -663,7 +663,7 @@
 .air-datepicker.-is-mobile-.-active-:not(.-custom-position-) {
     transform: translate(-50%, -50%);
     width: var(--mobile-bookibg-widget-wight);
-    font-size: var(--mobile-font-size-standart);
+    font-size: var(--font-size-standart);
 }
 
 .air-datepicker.-custom-position- {

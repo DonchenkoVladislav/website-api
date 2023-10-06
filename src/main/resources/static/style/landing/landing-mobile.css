@@ -32,19 +32,19 @@
     }
 
     p {
-        font-size: var(--mobile-font-size-standart);
+        font-size: var(--font-size-l);
     }
 
     button p {
-        font-size: var(--mobile-font-size-l);
+        font-size: var(--font-size-l);
     }
 
     .dateInput{
-        font-size: var(--mobile-font-size-l);
+        font-size: var(--font-size-l);
     }
 
     .button {
-        font-size: var(--mobile-font-size-l);
+        font-size: var(--font-size-l);
     }
 
     .catalog_footerText {
@@ -77,7 +77,7 @@
     }
 
     .mobileCityBanner h2 {
-        font-size: var(--mobile-font-size-mini);
+        font-size: var(--font-size-mini);
     }
 
     .mobileCityBanner img {

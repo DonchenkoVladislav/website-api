@@ -9,12 +9,12 @@
 }
 
 .mobileFooterLink {
-    margin-top: var(--inset-standart);
+    /*margin-top: var(--inset-standart);*/
     margin-bottom: var(--inset-standart);
     width: 90%;
     color: var(--font-color-light);
     text-decoration: none;
-    font-size: 32px;
+    font-size: var(--font-size-small);
     padding-left: 2%;
     font-weight: bold;
     font-family: sans-serif;
@@ -28,6 +28,6 @@
 #footerCookiesText {
     margin: 0;
     color: var(--font-color-light);
-    font-size: x-large;
+    font-size: var(--font-size-x-small);
     padding-left: 2%;
 }

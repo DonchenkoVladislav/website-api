@@ -50,18 +50,22 @@ function addClassByTime(element, className, time) {
 //Проиграть анимацию изчезания для элемента
 function playDeleteAnimation(element, animationName, animationTime) {
     element.style = "animation: " + animationName + " " + animationTime + "s ease-in-out;";
-    addClassByTime(element, START_OPACITY, animationTime)
+    if (!element.classList.contains('photoElements')) {
+        // addClassByTime(element, START_OPACITY, animationTime)
+        addClassByTime(element, NONE_DISPLAY, animationTime)
+    }
 }
-
 
 //Проиграть анимацию появления для элемента. Нужно, чтобы на элементе висел класс .startOpacity
-function playAppearanceAnimationByElement(element, animationName, animationTime) {
+function playAppearanceAnimationByElement(element, animationName, animationTime, isWasDeleted) {
     element.style = "animation: " + animationName + " " + animationTime + "s ease-in-out;";
-    removeClassByElementThouthTime(element, START_OPACITY, animationTime)
+    removeClassByElementThouthTime(element, START_OPACITY, animationTime, isWasDeleted)
 }
 
-function removeClassByElementThouthTime(element, className, time) {
-
+function removeClassByElementThouthTime(element, className, time, isWasDeleted) {
+    if (isWasDeleted) {
+        element.classList.remove(NONE_DISPLAY)
+    }
     setTimeout(function () {
         element.classList.remove(className)
     }, time * 1000)

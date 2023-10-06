@@ -14,6 +14,7 @@ $(document).ready(function () {
         url: requesrPath,
         type: 'POST',
         success: function(catalog) {
+            createClustersOnMap(catalog.items)
 
             let mainImgIdList = []
 
@@ -23,6 +24,7 @@ $(document).ready(function () {
                 })
 
             getMainPhotoList(mainImgIdList, catalog)
+
         },
         error: function(xhr, status, error) {
             // Обработка ошибки
@@ -45,22 +47,22 @@ function getMainPhotoList(mainImageId, catalog) {
     });
 }
 
-function getMainPhotos(mainImageId) {
-    // Получение списка картинок из сервера
-    fetch('/upload-main-photos?mainImageId=' + mainImageId)
-        .then(response => response.json())
-        .then(data => {
-            // const imagesContainer = document.getElementById(elementId);
-            // document.getElementsByClassName('dash')[0].remove();
+function geAllPhotoListToOneObject(apartmentId, apartmentGalleryId) {
+    $.ajax({
+        url: '/upload-all-photos-to-object?apartmentId=' + apartmentId,
+        type: 'GET',
+        success: function(response) {
+            let openCardImagePlace = document.getElementById(apartmentId).firstElementChild
+            openCardImagePlace.classList.add('gallery')
+            openCardImagePlace.id = apartmentGalleryId
 
-            // Цикл для создания и добавления каждой картинки
-            data.forEach(imageData => {
-                const imgElement = document.createElement('img');
-                imgElement.className = 'photoElements'
-                imgElement.src = `data:image/jpeg;base64, ${imageData}`;
-                imgElement.alt = 'Здесь должно быть фото квартиры';
-                // imagesContainer.append(imgElement);
-            });
-        })
-        .catch(error => console.log(error));
+            response.forEach(image => {
+                createImgToBase64(image.data, openCardImagePlace)
+            })
+        },
+        error: function(xhr, status, error) {
+            // Обработка ошибки
+            console.error(error);
+        }
+    });
 }

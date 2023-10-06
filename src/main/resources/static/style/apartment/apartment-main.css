@@ -1,0 +1,138 @@
+#apartmentHeadImage {
+}
+
+#apartmentHeadImage img {
+    width: 100%;
+}
+
+#apartmentAtributes, #apartmentDatesAtributes, #apartmentFullDescription,
+#apartmentServicesAtributes, #apartmentBooking, #apartmentMap, #footer {
+    z-index: 1;
+    position: relative;
+    background-color: white;
+}
+
+#apartmentAtributes {
+    border-top-left-radius: var(--border-radius-standart-mobile);
+    border-top-right-radius: var(--border-radius-standart-mobile);
+    display: flex;
+    flex-direction: column;
+    padding: var(--apartment-inset);
+    margin-top: calc(var(--border-radius-standart-mobile)*(-1));
+}
+
+#name_spacer {
+    font-size: x-large;
+    font-weight: 600;
+    margin-bottom: 1vh;
+}
+
+#city_spacer {
+    font-size: large;
+    font-weight: 600;
+    margin: 1vh 0;
+}
+
+#apartmentAtributes .apartmentComboElement img {
+    width: var(--catalog-img-size-standart);
+    height: var(--catalog-img-size-standart);
+}
+
+.apartmentComboElement {
+    margin-top: var(--inset-standart);
+    display: flex;
+    align-items: center;
+}
+
+.apartmentComboElement span {
+    margin-left: var(--inset-standart);
+}
+
+#apartmentDatesAtributes {
+
+    display: flex;
+    flex-direction: row;
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    scroll-padding: 1rem;
+}
+
+#apartmentDatesAtributes article {
+    margin: 5px;
+    scroll-snap-align: center;
+    border-radius: var(--border-radius-standart);
+}
+
+.dateElement {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--inset-standart);
+    height: var(--date-element-side-size);
+    border-radius: var(--border-radius-standart);
+    color: var(--font-color-dark);
+    background-color: var(--lite-back-color);
+    margin: 1vw
+}
+
+.dateElement p {
+    margin: 0;
+    font-size: var(--font-size-small);
+    width: var(--date-element-side-size);
+}
+
+#apartmentFullDescription {
+    padding: var(--apartment-inset);
+}
+
+.descriptionContainer p{
+    margin: 0;
+}
+
+#description_spacer {
+    width: 100%;
+    height: fit-content;
+    border: none;
+    word-wrap: break-word;
+    text-wrap: initial;
+    font-family: var(--font-family-text);
+}
+
+#apartmentServicesAtributes {
+    margin: var(--apartment-inset);
+}
+
+.cerviceAtribureList {
+    width: 50%;
+}
+
+.servicestable {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.cerviceAtribureList img {
+    width: var(--catalog-img-size-standart);
+    height: var(--catalog-img-size-standart);
+}
+
+.cerviceAtribureList span {
+    font-size: var(--font-size-standart);
+    font-weight: 300;
+}
+
+/*Стили слайдера фотографий объекта*/
+.apartmentGallery {
+    grid-template-columns: repeat(15, 100vw) !important;
+}
+
+.apartmentGallery img {
+    border-radius: 0 !important;
+}
+
+@media screen and (max-width: 1000px) {
+
+}

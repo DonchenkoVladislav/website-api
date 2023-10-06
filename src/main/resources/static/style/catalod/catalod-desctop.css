@@ -93,8 +93,8 @@
     }
 
     #catalog-header-dates img {
-        width: var(--catalog-img-size-micro);
-        height: var(--catalog-img-size-micro);
+        width: var(--catalog-img-size-standart);
+        height: var(--catalog-img-size-standart);
     }
 
     #catalog-header-dates-calendar {

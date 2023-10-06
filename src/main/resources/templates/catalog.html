@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/style/catalod/catalog-apartment.css">
     <link rel="stylesheet" href="/style/catalod/catalog-map.css">
     <link rel="stylesheet" href="/scripts/airdatepicker/air-datepicker.css">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8; width=device-width, initial-scale=1" name="viewport"> />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8; width=device-width, initial-scale=1" name="viewport">
 </head>
 <body>
 <div id="catalog_main">
@@ -33,18 +33,18 @@
             </section>
             <section id="catalog-filters">
                 <article class="additionstAtribute filterButton startOpacity">
-                    <button class="catalogRowButton">
+                    <button class="catalogRowButton" onclick="createPopUp(createElement('div', 'empty', ''))">
                         <img src="/images/icons/sorting.svg">
                     </button>
                 </article>
                 <article class="additionstAtribute filterButton startOpacity">
-                    <button class="catalogRowButton">
+                    <button class="catalogRowButton" onclick="createPopUp(createElement('div', 'empty', ''))">
                         <img src="/images/icons/filters.svg">
                         <span>Фильтры</span>
                     </button>
                 </article>
                 <article class="additionstAtribute filterButton startOpacity">
-                    <button class="catalogRowButton">
+                    <button class="catalogRowButton" onclick="createPopUp(createElement('div', 'empty', ''))">
                         <img src="/images/icons/guests.svg">
                         <span>Гостей: 3</span>
                     </button>
@@ -90,14 +90,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script type="text/javascript" src="/scripts/map/map.js"></script>
 <script type="text/javascript" src="/scripts/catalog/catalogRequest.js"></script>
+<script type="text/javascript" src="/scripts/constructor.js"></script>
 <script type="text/javascript" src="/scripts/catalog/catalogConstructor.js"></script>
 <script type="text/javascript" src="/scripts/widget.js"></script>
 <script type="text/javascript" src="/scripts/airdatepicker/air-datepicker.js"></script>
 <script type="text/javascript" src="/scripts/constants/animationConstants.js"></script>
 <script type="text/javascript" src="/scripts/catalog/catalogAnimationsController.js"></script>
 <script type="text/javascript" src="/scripts/catalog/catalogCreateServiceList.js"></script>
+<script type="text/javascript" src="/scripts/catalog/popUp.js"></script>
 <script type="text/javascript" src="/scripts/landingDatepicker.js"></script>
 <script type="text/javascript" src="/scripts/selectCity.js"></script>
+<script type="text/javascript" src="/scripts/imageConverter.js"></script>
 <script type="text/javascript" src="/scripts/constants/cities.js"></script>
 <script type="text/javascript" src="/scripts/constants/links.js"></script>
 

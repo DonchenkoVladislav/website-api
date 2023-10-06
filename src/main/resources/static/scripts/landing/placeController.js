@@ -11,7 +11,7 @@ $(document).ready(function () {
             '<h1>Гарантия теплой встречи</h1>',
             '<p>С Вами работает команда «посуточный аренды квартир в Калининграде и области»</p>',
             '<a class="telegramButtonMobile" href="">\n' +
-            '                <img width="82" height="82" src="/images/icons/telegram.svg">\n' +
+            '                <img src="/images/icons/telegram.svg">\n' +
             '                <p>Мы в Telegram</p>\n' +
             '            </a>',
             'firstMobileLandingWidget'

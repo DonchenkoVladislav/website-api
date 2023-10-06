@@ -1,16 +1,15 @@
 @media screen and (max-width: 1000px) {
 
     h2 {
-        font-size: var(--mobile-font-size-header);
         /*font-family: var(--font-family-headers);*/
     }
 
     h3 {
-        font-size: var(--mobile-font-size-standart);
+        font-size: var(--font-size-standart);
     }
 
     p {
-        font-size: var(--mobile-font-size-mini);
+        font-size: var(--font-size-mini);
     }
 
     .onlyDesctop {
@@ -65,8 +64,8 @@
     }
 
     #catalog-header-dates img {
-        width: var(--catalog-img-size-mini);
-        height: var(--catalog-img-size-mini);
+        width: var(--catalog-img-size-standart);
+        height: var(--catalog-img-size-standart);
         margin-bottom: 1vh;
     }
 
