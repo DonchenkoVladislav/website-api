@@ -38,7 +38,7 @@
 }
 
 .widgetHeaderLight {
-    margin-top: var(--mobile-widget-inset);
+    margin-top: var(--large-vertical-inset);
 }
 
 .widgetHeaderLight h1 {

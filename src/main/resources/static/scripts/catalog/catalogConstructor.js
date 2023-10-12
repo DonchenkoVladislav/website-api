@@ -8,7 +8,7 @@ function createApartmentList(response, mainPhotoList) {
 
     //Создаем кнопки перемещения каталога вниз (для открытия карты) и определяем ее функцию
     if (window.matchMedia("(max-width: 1000px)").matches) {
-        createPopUpCloseButton(
+        createCatalogHiddenButton(
             catalogPlace,
             function () {
                 showFullMap()
@@ -49,7 +49,7 @@ function createApartmentList(response, mainPhotoList) {
         let apartmentName = createElement('span', 'apartmentName', item.name)
 
         //Генерим стоимость квартиры
-        let apartmentPrice = createElement('span', 'apartmentPrice', item.summary + " ₽")
+        let apartmentPrice = createElement('span', 'apartmentPrice', formatSummary(item.summary))
 
         //Генерим строку внизу карточки квартиры
         let apartmentAtribute = createElement('section', 'apartmentAtribute', "")
@@ -222,7 +222,7 @@ function createAtributeRowInOpenCard(item) {
         'none', 'apartmentComboElementValue', item.name)
     //Генерим стоимость квартиры
     let apartmentPrice = createComboElement(
-        'none', 'apartmentComboElementValue', item.summary + " ₽")
+        'none', 'apartmentComboElementValue', formatSummary(item.summary))
     apartmentPrice.style = 'border: solid;'
     //Площадь
     let apartmentSpace = createComboElement(
@@ -319,4 +319,17 @@ function createOpenAtributeRow(item) {
         )
     )
     return servicesCatalogRow
+}
+
+//Кнопка скрытия каталога
+function createCatalogHiddenButton(placeToDownArrowButton, action, isDeleteArrow) {
+    let downArrow = createElement('span', 'empty', '❮')
+    downArrow.id = 'downArrowCatalog'
+
+    placeToDownArrowButton.prepend(downArrow)
+
+    downArrow.addEventListener('click', function () {
+        isDeleteArrow ? downArrow.remove() : null;
+        action()
+    })
 }

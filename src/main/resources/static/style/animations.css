@@ -70,6 +70,15 @@
     }
 }
 
+@keyframes unappearance {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 @keyframes fastAppearance {
     0% {
         opacity: 0;

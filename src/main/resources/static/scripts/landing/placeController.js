@@ -83,7 +83,7 @@ function createMobileHeaderWidget(headerWithTag) {
     return banner;
 }
 
-// Виджет со списком городов для мобилки - для десктопа - метод createBannerList()
+// pop со списком городов для мобилки - для десктопа - метод createBannerList()
 function createCityMobileWidget() {
     let mobileCityWidget = document.createElement('section');
     mobileCityWidget.classList.add('mobileCityWidget')

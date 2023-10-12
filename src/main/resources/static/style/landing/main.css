@@ -50,22 +50,6 @@ p {
     justify-content: space-between;
 }
 
-.sitySelect {
-}
-
-.sitySelect p {
-    color: var(--font-color-dark-label);
-    margin: var(--inset-standart);
-}
-
-.sitySelect:hover {
-    background: var(--font-color-dark);
-}
-
-.sitySelect:hover p {
-    color: var(--font-color-light);
-}
-
 .dateInput{
     font-family: var(--font-family);
     color: var(--font-color-dark-label);
@@ -105,13 +89,4 @@ p {
     margin: 0 var(--inset-standart);
     text-align: justify;
     color: var(--font-color-light);
-}
-
-#placeToCitySelect {
-    display: flex;
-    flex-direction: column;
-    z-index: 1;
-    background-color: white;
-    border-radius: var(--border-radius-standart);
-    position: absolute;
 }

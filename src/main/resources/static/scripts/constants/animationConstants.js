@@ -39,5 +39,6 @@ const SLIDE_OUT = "fastSlideOutLeft"
 
 const APPEARANCE = "appearance"
 const FAST_APPEARANCE = "fastAppearance"
+const UNAPPEARANCE = "unappearance"
 
 const BLUR = "blur"

@@ -52,12 +52,6 @@
         color: var(--font-color-light);
     }
 
-    .alfaInput {
-        background: var(--alfa-button-color-light);
-        border: var(--none-border);
-        border-radius: var(--border-radius-standart);
-    }
-
     #placeToCitySelect {
         display: flex;
         flex-direction: column;

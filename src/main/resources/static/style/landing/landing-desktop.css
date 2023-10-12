@@ -50,10 +50,6 @@
         font-size: smaller;
     }
 
-    #placeToCitySelect {
-        width: var(--bookibg-widget-wight);
-    }
-
     .startOpacityDesctop {
         opacity: 0;
     }

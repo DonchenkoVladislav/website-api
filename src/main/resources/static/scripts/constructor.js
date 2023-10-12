@@ -11,6 +11,24 @@ function createElement(tag, className, responseField, elementId) {
     return element;
 }
 
+function createInput(type, placeholder, readOnly, action, id) {
+    let inputElement = document.createElement('input')
+    inputElement.classList.add('universalInput')
+    inputElement.type = type
+    inputElement.readOnly = readOnly
+    inputElement.placeholder = placeholder
+
+    if(action !== undefined) {
+        inputElement.addEventListener('click', (event) => action())
+    }
+
+    if(id !== undefined) {
+        inputElement.id = id
+    }
+
+    return inputElement;
+}
+
 //Упрощенное создание объектов с иконками
 function createComboElement(iconName, valueClassName, responseField, iconPath) {
 
@@ -101,4 +119,10 @@ function createServiceInner(apartmentServicesList) {
     })
 
     return servicesInner;
+}
+
+function formatSummary(numberInt) {
+    const reversedString = numberInt.toString().split('').reverse().join('');
+    const spacedString = reversedString.replace(/(\d{3})/g, '$1 ').trim();
+    return spacedString.split('').reverse().join('') + RUR;
 }

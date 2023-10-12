@@ -83,15 +83,6 @@
         scale: 0.95;
     }
 
-    #downArrow {
-        width: 100%;
-        text-align: center;
-        height: fit-content;
-        font-size: var(--font-size-mini);
-        color: var(--font-color-dark-label);
-        margin-bottom: 5px;
-    }
-
     .catalog_body_top {
         margin-top: 40vh;
     }
@@ -216,30 +207,6 @@
     .catalogRowButtonFullWight span {
         font-size: var(--font-size-standart);
         font-weight: 600;
-    }
-
-    .popUp {
-        display: flex;
-        justify-content: center;
-        align-items: end;
-        width: 100vw;
-        height: 100vh;
-        z-index: 9;
-        position: fixed;
-        top: 0;
-        /*background-color: #4646464d;*/
-    }
-
-    .popUpInner {
-        display: flex;
-        flex-direction: column;
-        padding: var(--card-lable-inset);
-        width: 90%;
-        min-height: 50%;
-        background-color: white;
-        box-shadow: 0 0 100px rgba(0, 0, 0);
-        border-radius: var(--border-radius-mini-mobile);
-        margin-bottom: var(--card-lable-inset);
     }
 
     .servicestable {

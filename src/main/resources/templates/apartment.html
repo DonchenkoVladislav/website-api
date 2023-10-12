@@ -3,18 +3,24 @@
 <head>
     <link rel="stylesheet" href="/style/main.css">
     <link rel="stylesheet" href="/style/apartment/apartment-main.css">
+    <link rel="stylesheet" href="/style/animations.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8; width=device-width, initial-scale=1" name="viewport">
 </head>
 <body>
 <div id="apartmentIdValue" style="display: none" th:text="${apartmentIdElement}"></div>
 <div id="apartmentBookingDateValue" style="display: none" th:text="${apartmentDateElement}"></div>
+<div id="goToBackPageButton"></div>
 <!--Галерея изображений вверху-->
 <article id="apartmentHeadImage" class="gallery apartmentGallery"></article>
 <!--Атрибуты объекта-->
 <article id="apartmentAtributes"></article>
+<!--Стоимость аренды объекта-->
+<article id="apartmentSummary"></article>
 <!--Даты бронирования-->
+<span class="smallHeader" style="padding-left: var(--standart-gorisontal-inset)">Даты бронирования</span>
 <article id="apartmentDatesAtributes"></article>
 <!--Полное описание объекта-->
+<span class="smallHeader" style="padding-left: var(--standart-gorisontal-inset)">Описание</span>
 <article id="apartmentFullDescription"></article>
 <!--Список услуг-->
 <article id="apartmentServicesAtributes"></article>
@@ -29,9 +35,13 @@
 </section>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<script type="text/javascript" src="/scripts/constants/links.js"></script>
+<script type="text/javascript" src="/scripts/constants/common.js"></script>
 <script type="text/javascript" src="/scripts/constructor.js"></script>
 <script type="text/javascript" src="/scripts/apartment/apartmentConstructor.js"></script>
 <script type="text/javascript" src="/scripts/apartment/apartmentRequest.js"></script>
 <script type="text/javascript" src="/scripts/imageConverter.js"></script>
 <script type="text/javascript" src="/scripts/catalog/catalogCreateServiceList.js"></script>
+<script type="text/javascript" src="/scripts/catalog/popUp.js"></script>
+<script type="text/javascript" src="/scripts/constants/animationConstants.js"></script>
+<script type="text/javascript" src="/scripts/catalog/catalogAnimationsController.js"></script>
+<script type="text/javascript" src="/scripts/widget.js"></script>

@@ -1,3 +1,24 @@
+.goToPreviousPage {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 2%;
+    left: 4%;
+    border: none;
+    z-index: 10;
+    box-shadow: 0 0 12px 0 rgb(157 157 157);
+}
+
+.goToPreviousPage span {
+    color: var(--font-color-dark-label);
+    font-size: large;
+}
+
 #apartmentHeadImage {
 }
 
@@ -17,8 +38,15 @@
     border-top-right-radius: var(--border-radius-standart-mobile);
     display: flex;
     flex-direction: column;
-    padding: var(--apartment-inset);
-    margin-top: calc(var(--border-radius-standart-mobile)*(-1));
+    padding: var(--large-vertical-inset) var(--standart-gorisontal-inset) var(--standart-gorisontal-inset);
+    margin-top: calc(var(--border-radius-standart-mobile) * (-1));
+}
+
+#apartmentSummary {
+    display: flex;
+    flex-direction: column;
+    padding: var(--large-vertical-inset) var(--standart-gorisontal-inset) var(--standart-gorisontal-inset);
+    margin-top: calc(var(--border-radius-standart-mobile) * (-1));
 }
 
 #name_spacer {
@@ -27,13 +55,25 @@
     margin-bottom: 1vh;
 }
 
+#name_spacerForBookingForm, #summ_spacerForBookingForm, #date_spacerForBookingForm {
+    display: block;
+    width: calc(100% - 2 * var(--inset-standart));
+    text-align: start;
+}
+
+#name_spacerForBookingForm, #summ_spacerForBookingForm {
+    font-size: large;
+    font-weight: 600;
+}
+
 #city_spacer {
     font-size: large;
     font-weight: 600;
     margin: 1vh 0;
 }
 
-#apartmentAtributes .apartmentComboElement img {
+#apartmentAtributes .apartmentComboElement img,
+#apartmentSummary .apartmentComboElement img {
     width: var(--catalog-img-size-standart);
     height: var(--catalog-img-size-standart);
 }
@@ -57,6 +97,8 @@
     overflow-y: hidden;
     scroll-snap-type: x proximity;
     scroll-padding: 1rem;
+
+    padding: var(--standart-gorisontal-inset);
 }
 
 #apartmentDatesAtributes article {
@@ -84,10 +126,16 @@
 }
 
 #apartmentFullDescription {
-    padding: var(--apartment-inset);
+    padding: var(--standart-gorisontal-inset);
 }
 
-.descriptionContainer p{
+.descriptionContainer {
+    height: 20vh;
+    display: block;
+    overflow: hidden;
+}
+
+.descriptionContainer p {
     margin: 0;
 }
 
@@ -101,7 +149,7 @@
 }
 
 #apartmentServicesAtributes {
-    margin: var(--apartment-inset);
+    margin: var(--standart-gorisontal-inset);
 }
 
 .cerviceAtribureList {
@@ -121,7 +169,7 @@
 
 .cerviceAtribureList span {
     font-size: var(--font-size-standart);
-    font-weight: 300;
+    /*font-weight: 300;*/
 }
 
 /*Стили слайдера фотографий объекта*/
@@ -131,6 +179,87 @@
 
 .apartmentGallery img {
     border-radius: 0 !important;
+}
+
+.smallHeader {
+    font-size: var(--font-size-smaller);
+    color: var(--font-color-gray);
+    margin-top: var(--large-vertical-inset);
+    display: block;
+}
+
+.smallHeaderPlus {
+    font-size: var(--font-size-smaller);
+    color: var(--font-color-gray);
+    margin-top: calc(var(--large-vertical-inset) + 1vh);
+    display: block;
+}
+
+.showToFull {
+    font-size: var(--font-size-smaller);
+    color: var(--font-color-gray);
+    text-align: end;
+    display: block;
+    width: 100%;
+    text-decoration: underline;
+}
+
+#apartmentBooking {
+    margin-top: calc(2 * var(--large-vertical-inset));
+    display: flex;
+    justify-content: center;
+}
+
+.apartmentRowButton, .popUpButton {
+    font-size: var(--font-size-standart);
+    color: var(--font-color-light);
+    background: var(--widget-background-color);
+    border-radius: var(--border-radius-mini-mobile);
+    border: var(--none-border);
+    padding: var(--inset-standart) 4vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.apartmentRowButton {
+    width: calc(100vw - 2 * var(--standart-gorisontal-inset));
+}
+
+.popUpButton {
+    width: 90vw;
+}
+
+/*Стили popUp с условиями бронирования*/
+.alertHeaderEyes {
+    width: 100%;
+    font-size: 70px;
+    text-align: center;
+}
+
+.alertHeaderMessage {
+    width: 100%;
+    text-align: center;
+}
+
+.allertPopUpInner, .bookingPopUpInner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 80%;
+}
+
+.bookingPopUpInner .smallHeader {
+    display: block;
+    width: calc(100% - 2 * var(--inset-standart));
+    text-align: start;
+}
+
+#communicationsInput {
+    margin-bottom: calc(2 * var(--inset-standart));
 }
 
 @media screen and (max-width: 1000px) {

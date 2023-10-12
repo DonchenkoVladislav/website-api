@@ -7,7 +7,7 @@
     --none-border: none;
 
     --inset-standart: 10px;
-    --mobile-widget-inset: 2vh;
+    --large-vertical-inset: 2vh;
     --card-lable-inset: 3%;
 
     --font-family: sans-serif;
@@ -16,6 +16,7 @@
 
     --font-color-light: #e8eaf3;
     --font-color-dark: #2b2b2b;
+    --font-color-gray: #a7a7a7;
     --font-color-dark-label: #474d5b;
 
     --font-size-big: 6vh;
@@ -24,9 +25,11 @@
     --font-size-standart: medium;
     --font-size-mini: 14px;
     --font-size-small: small;
+    --font-size-smaller: smaller;
     --font-size-x-small: x-small;
 
     --alfa-button-color-light: rgba(255, 255, 255, 0.6);
+    --input-background-color: rgb(239 239 239 / 60%);
     --menu-background-color: #4c4c4c82;
     --primary-background-color: #f6f6f6;
     --lite-back-color: rgb(229 229 229 / 60%);
@@ -49,7 +52,7 @@
 
     --date-element-side-size: 65px;
 
-    --apartment-inset: 3vw;
+    --standart-gorisontal-inset: 3vw;
 
     --catalog-img-size-large: 36px;
     --catalog-img-size-standart: 20px;
@@ -137,3 +140,103 @@ a {
     /*font-size: 0;*/
 }
 /*Стили слайдера фотографий объекта*/
+
+.popUp {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9;
+    position: fixed;
+    top: 0;
+    background-color: #0000006e;
+}
+
+.popUpInner {
+    display: flex;
+    flex-direction: column;
+    padding: var(--card-lable-inset);
+    width: 94%;
+    min-height: 68%;
+    background-color: white;
+    /*box-shadow: 0 0 100px rgba(0, 0, 0);*/
+    border-top-right-radius: var(--border-radius-mini-mobile);
+    border-top-left-radius: var(--border-radius-mini-mobile);
+    /*margin-bottom: var(--card-lable-inset);*/
+}
+
+#closePopUp {
+    width: 98%;
+    text-align: right;
+    height: fit-content;
+    font-size: 30px;
+    color: var(--font-color-dark-label);
+    margin-bottom: 5px;
+}
+
+.universalInput {
+    width: calc(96% - 2 * var(--inset-standart));
+    font-size: var(--font-size-standart);
+    border-radius: var(--border-radius-standart);
+    font-family: var(--font-family);
+    color: var(--font-color-dark-label);
+    padding: var(--inset-standart);
+    background-color: var(--input-background-color);
+    border: var(--none-border);
+}
+
+#placeToCitySelect, #currentSelect {
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    background-color: white;
+    border-radius: var(--border-radius-standart);
+    position: absolute;
+}
+
+.sitySelect {
+}
+
+.sitySelect p {
+    color: var(--font-color-dark-label);
+    margin: var(--inset-standart);
+}
+
+.sitySelect:hover {
+    background: var(--font-color-dark);
+}
+
+.sitySelect:hover p {
+    color: var(--font-color-light);
+}
+
+.selectIsFullClass {
+    width: calc(100% - 2 * var(--inset-standart)) !important;
+    height: 56%;
+}
+
+.selectIsFullClass button p {
+    font-size: var(--font-size-standart);
+}
+
+@media screen and (max-width: 1000px) {
+
+    #placeToCitySelect, #currentSelect {
+        width: var(--mobile-bookibg-widget-wight);
+    }
+}
+
+@media screen and (min-width: 1000px) {
+
+    #placeToCitySelect, #currentSelect {
+        width: var(--bookibg-widget-wight);
+    }
+
+    /*.alfaInput {*/
+    /*    background: var(--alfa-button-color-light);*/
+    /*    border: var(--none-border);*/
+    /*    border-radius: var(--border-radius-standart);*/
+    /*}*/
+}

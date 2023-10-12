@@ -79,7 +79,7 @@ function createClustersOnMap(objectsList) {
              * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoObject.xml
              */
             getPointData = function (summary) {
-                let summ = summary + ' ₽'
+                let summ = summary + RUR
                 return {
                     iconCaption: summ
                 };

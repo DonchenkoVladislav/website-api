@@ -5,7 +5,7 @@
     background: var(--widget-background-color);
     padding-top: 4vh;
     padding-bottom: 1vh;
-    margin-top: var(--mobile-widget-inset);
+    margin-top: var(--large-vertical-inset);
 }
 
 .mobileFooterLink {
