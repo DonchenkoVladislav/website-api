@@ -43,6 +43,17 @@
     }
 }
 
+@keyframes slideOutLeft {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(10%);
+    }
+}
+
 @keyframes slideInTop {
     0% {
         opacity: 0;

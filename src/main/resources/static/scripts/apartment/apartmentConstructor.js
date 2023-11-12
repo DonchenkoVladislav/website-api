@@ -7,40 +7,39 @@ $(document).ready(function () {
 const APARTMENT_ELEMENT = 'apartmentComboElementValue'
 const SMALL_HEADER = 'smallHeader'
 
-function createApartmentPage(response) {
-
-    let goToBackPageButton = document.getElementById('goToBackPageButton')
-
-    goToBackPageButton.append(
-        createButton(
-            null,
-            '❮',
-            'goToPreviousPage',
-            null,
-            () => history.back()
-        )
-    )
+function createApartmentPage(response, isDesctop) {
 
     let gallery = document.getElementById('apartmentHeadImage')
     let apartmentAtributes = document.getElementById('apartmentAtributes')
     let apartmentSummary = document.getElementById('apartmentSummary')
-    let apartmentDatesAtributes = document.getElementById('apartmentDatesAtributes')
     let apartmentFullDescription = document.getElementById('apartmentFullDescription')
     let apartmentServicesAtributes = document.getElementById('apartmentServicesAtributes')
-    let apartmentBooking = document.getElementById('apartmentBooking')
 
     createImgToBase64(response.mainImage.data, gallery)
     response.images.forEach(image => createImgToBase64(image.data, gallery))
 
+    //Помещаем харастеристики в отдельный блок
+    let caracteristics = createElement('article', 'caracteristics', '')
+    caracteristics.append(
+        createComboElement('space.svg', APARTMENT_ELEMENT, response.space + ' м²'),
+        createComboElement('bed.svg', APARTMENT_ELEMENT, response.beds)
+    )
+
     apartmentAtributes.append(
         createElement('span', APARTMENT_ELEMENT, response.name, 'name_spacer'),
-
         createElement('span', SMALL_HEADER, 'Город'),
-        createElement('span', APARTMENT_ELEMENT, response.city, 'city_spacer'),
+        createElement('span', APARTMENT_ELEMENT, response.city, 'city_spacer')
+    )
 
-        createElement('span', SMALL_HEADER, 'Характеристики'),
-        createComboElement('space.svg', APARTMENT_ELEMENT, response.space + ' м²'),
-        createComboElement('bed.svg', APARTMENT_ELEMENT, response.beds),
+    //Для мобилки добавляем заголовок Характиристики
+    if (!isDesctop) {
+        apartmentAtributes.append(
+            createElement('span', SMALL_HEADER, 'Характеристики'))
+    }
+
+    //Добавляем характиристики (площадь, кровати и т.д.)
+    apartmentAtributes.append(
+        caracteristics
     )
 
     apartmentSummary.append(
@@ -48,48 +47,78 @@ function createApartmentPage(response) {
         createComboElement('coins.svg', APARTMENT_ELEMENT, formatSummary(response.summary))
     )
 
-    response.bookingDates.forEach(date => {
-
-        let countDate = date.date
-
-        let dateElement = createElement('article', 'dateElement', '')
-        let dateValue = createElement('p', 'empty', convertDate(countDate), false)
-        let dayNameValue = createElement('p', 'empty', getFormattedDayOfWeek(countDate))
-        let dateSummValue = createElement('p', 'empty', formatSummary(date.summary))
-
-        dateElement.append(dateValue, dayNameValue, dateSummValue)
-
-        apartmentDatesAtributes.append(dateElement)
-    })
-    apartmentDatesAtributes.firstElementChild.style = "margin-left: 0 !important;"
-
     //Добавляем кнопочку "Показать полностью"
-    let fullShowDescriptionButton = createElement('span', 'showToFull', 'Показать полностью')
-
-    fullShowDescriptionButton.addEventListener('click', () => {
-        fullShowDescriptionButton.remove()
-        document.getElementsByClassName('descriptionContainer')[0].style = 'height: fit-content !important'
-    })
+    // let fullShowDescriptionButton = createElement('span', 'showToFull', 'Показать полностью')
+    //
+    // fullShowDescriptionButton.addEventListener('click', () => {
+    //     fullShowDescriptionButton.remove()
+    //     document.getElementsByClassName('descriptionContainer')[0].style = 'height: fit-content !important'
+    // })
 
     apartmentFullDescription.append(
         createDescription(response.description),
-        fullShowDescriptionButton
+        // fullShowDescriptionButton
     )
+
+    getButton(apartmentFullDescription, {
+        buttonText: "Показать полностью",
+        buttonClass: "alfaInput",
+        containerId: 'fullShowButton',
+        buttonAction: () => {
+            document.getElementById('fullShowButton').remove()
+            document.getElementsByClassName('descriptionContainer')[0].style = 'height: fit-content !important'
+        }
+    })
 
     apartmentServicesAtributes.append(
         createElement('span', SMALL_HEADER, 'Удобства'),
         createServiceInner(splitServisesBySpace(response.services))
     )
 
-    apartmentBooking.append(
-        createButton(
-            null,
-            'Забронировать за ' + formatSummary(response.summary),
-            "apartmentRowButton",
-            null,
-            () => createBookingAlertPopUp(response)
+    //Если старница открыта в десктопе
+    if (!isDesctop) {
+        //Находим доле с датами
+        let apartmentDatesAtributes = document.getElementById('apartmentDatesAtributes')
+        //Находим кнопку назад
+        let goToBackPageButton = document.getElementById('goToBackPageButton')
+        //Находим кнопку забронировать (для десктопа своя кнопка)
+        let apartmentBooking = document.getElementById('apartmentBooking')
+
+        response.bookingDates.forEach(date => {
+
+            let countDate = date.date
+
+            let dateElement = createElement('article', 'dateElement', '')
+            let dateValue = createElement('p', 'empty', convertDate(countDate), false)
+            let dayNameValue = createElement('p', 'empty', getFormattedDayOfWeek(countDate))
+            let dateSummValue = createElement('p', 'empty', formatSummary(date.summary))
+
+            dateElement.append(dateValue, dayNameValue, dateSummValue)
+
+            apartmentDatesAtributes.append(dateElement)
+        })
+        apartmentDatesAtributes.firstElementChild.style = "margin-left: 0 !important;"
+
+        goToBackPageButton.append(
+            createButton(
+                null,
+                LEFT_ARROW_SIMBOL,
+                'goToPreviousPage',
+                null,
+                () => history.back()
+            )
         )
-    )
+
+        apartmentBooking.append(
+            createButton(
+                null,
+                'Забронировать за ' + formatSummary(response.summary),
+                "apartmentRowButton",
+                null,
+                () => createBookingAlertPopUp(response)
+            )
+        )
+    }
 }
 
 function createDescription(description) {
@@ -98,10 +127,12 @@ function createDescription(description) {
     description.split('\n').forEach(elem => {
 
         let pTag = document.createElement('p')
+        pTag.classList.add('mobilePMargin')
         pTag.innerHTML = elem
-        let brTag = document.createElement('br')
+        // let brTag = document.createElement('br')
 
-        descriptionContainer.append(pTag, brTag)
+        // descriptionContainer.append(pTag, brTag)
+        descriptionContainer.append(pTag)
     })
 
     return descriptionContainer;
@@ -145,7 +176,7 @@ function getFormattedDayOfWeek(timestamp) {
 //PopUp с условиями бронирования
 function createBookingAlertPopUp(response) {
 
-    let alertHeader = createElement('span', 'alertHeaderEyes', '👀')
+    let alertHeader = createElement('span', 'alertHeaderEyes', EYES_SMILE)
     let alertMessage = createElement('span', 'alertHeaderMessage', BOOKING_ALERT_MESSAGE_PART_1)
     let alertMessage2 = createElement('span', 'alertHeaderMessage', BOOKING_ALERT_MESSAGE_PART_2)
     let alertMessage3 = createElement('span', 'alertHeaderMessage', BOOKING_ALERT_MESSAGE_PART_3)
@@ -220,6 +251,47 @@ function createBookingPopUp(response) {
     )
 
     createPopUp(inner)
+}
+
+function createUserInfoFormForBooking(selector, lastBookingDate) {
+    selector.append(
+        createElement('span', APARTMENT_ELEMENT, response.name, 'name_spacerForBookingForm'),
+
+        createElement('span', SMALL_HEADER, 'Стоимость за ' + response.nights),
+        createElement('span', APARTMENT_ELEMENT, formatSummary(response.summary), 'summ_spacerForBookingForm'),
+
+        createElement('span', SMALL_HEADER, 'Даты проживания'),
+        createElement('span', APARTMENT_ELEMENT,
+            'C ' + convertDate(response.bookingDates[0].date, true) + ' по '
+            + convertDate(response.bookingDates[lastBookingDate].date, true),
+            'date_spacerForBookingForm'),
+
+        createElement('span', SMALL_HEADER, 'Ваше имя'),
+        createInput('text', 'Иван', false),
+
+        createElement('span', SMALL_HEADER, 'Номер телефона'),
+        createInput('number', '+71234567890', false),
+
+        createElement('span', SMALL_HEADER, 'Как с Вами связаться?'),
+        createInput('text', 'Тап!', true,
+            () => createCommunicationSelect(
+                inner,
+                [['Перезвоните мне'], ['Напишите в Telegram'], ['Напишите в Whatsapp']],
+                false
+            ),
+            'communicationsInput'
+        ),
+
+        createButton(
+            null,
+            SEND_APPLICATIOM,
+            "popUpButton",
+            null,
+            () => {
+                closePopUp()
+            }
+        )
+    )
 }
 
 //Показать pop up с выбором способа связи

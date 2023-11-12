@@ -24,7 +24,7 @@ function createApartmentList(response, mainPhotoList) {
         card.classList.add('apartmentCard')
         card.id = item.id
 
-        //Генерим метсо для фото
+        //Генерим место для фото
         let mainPhotoPlace = document.createElement('article')
         mainPhotoPlace.classList.add('apartmentMainPhotoPlace')
         mainPhotoPlace.id = item.mainImageId
@@ -41,7 +41,7 @@ function createApartmentList(response, mainPhotoList) {
         // imgElement.alt = 'Здесь должно быть фото квартиры';
         // mainPhotoPlace.append(imgElement);
 
-        //Удаляем элемент с главныи фото из массива, чтобы не передирать его в новом фильтре
+        //Удаляем элемент с главныи фото из массива, чтобы не перебирать его в новом фильтре
         let index = mainPhotoListCurrent.findIndex(item => item === mainPhotoObjForCurrentApartment[0]);
         mainPhotoListCurrent.splice(index, 1)
 
@@ -74,20 +74,30 @@ function createApartmentList(response, mainPhotoList) {
         apartmentAtribute.append(
             apartmentSpace,
             apartmentBeds,
-            apartmentFromDay
+            // apartmentFromDay
         )
+
+        //Генерим объект, в который поместим название объекта, его стоимость и доп атрибуты на карточке в каталоге
+        let apartmentAllAtribute = createElement('article', 'apartmentAllAtribute', "")
+        apartmentAllAtribute.append(
+            apartmentName,
+            apartmentPrice,
+            apartmentAtribute)
 
         //Все, ранее созданные элементы, помещаем в карточку объекта
         card.append(
             mainPhotoPlace,
-            apartmentName,
-            apartmentPrice,
-            apartmentAtribute
+            apartmentAllAtribute
         )
 
         // Обработка тапа для мобилки
         if (window.matchMedia("(max-width: 1000px)").matches) {
             tapOnCard(mainPhotoPlace, item)
+        }
+
+        // Обработка тапа для десктопа
+        if (window.matchMedia(DESCTOP).matches) {
+            openApartmentPopUpDesctop(card, item.id)
         }
 
         catalogPlace.append(card)
@@ -132,7 +142,7 @@ function closeAndOpenCard(item, photoPlace, animationTime) {
 
         //Скрываем атрибуты с закрытой карточки объекта
         getCardChildren(cardObject).forEach(atribute => {
-            atribute.style = "animation: " + SLIDE_OUT +  " " + animationTime + "s ease-in-out;";
+            atribute.style = "animation: " + SLIDE_OUT + " " + animationTime + "s ease-in-out;";
             //Добавляем класс с display: none
             setTimeout(() => atribute.classList.add(NONE_DISPLAY), animationTime * 1000)
         })
@@ -142,14 +152,13 @@ function closeAndOpenCard(item, photoPlace, animationTime) {
         atributeRowInOpenCard.classList.add(START_OPACITY)
         cardObject.append(atributeRowInOpenCard)
         setTimeout(
-            () => atributeRowInOpenCard.style = "animation: " + APPEARANCE +  " " + animationTime + "s ease-in-out;",
+            () => atributeRowInOpenCard.style = "animation: " + APPEARANCE + " " + animationTime + "s ease-in-out;",
             animationTime * 1000)
         setTimeout(
             () => atributeRowInOpenCard.classList.remove(START_OPACITY),
             animationTime * 1000 * 2)
 
-    }
-    else {
+    } else {
         closeCard(photoPlace, animationTime)
         returnCardAtribute(photoPlace, animationTime)
     }
@@ -190,7 +199,7 @@ function returnCardAtribute(clickSpacer, animationTime) {
 }
 
 function showContexButtons(atribute, animationTime) {
-    atribute.style = "animation: " + SLIDE_IN +  " " + animationTime + "s ease-in-out;";
+    atribute.style = "animation: " + SLIDE_IN + " " + animationTime + "s ease-in-out;";
     //Добавляем класс с display: none
     setTimeout(() => atribute.classList.remove(NONE_DISPLAY), animationTime * 1000)
 }
@@ -323,13 +332,29 @@ function createOpenAtributeRow(item) {
 
 //Кнопка скрытия каталога
 function createCatalogHiddenButton(placeToDownArrowButton, action, isDeleteArrow) {
-    let downArrow = createElement('span', 'empty', '❮')
-    downArrow.id = 'downArrowCatalog'
+    let downArrow = createElement('span', 'downArrowCatalog', LEFT_ARROW_SIMBOL)
 
     placeToDownArrowButton.prepend(downArrow)
 
     downArrow.addEventListener('click', function () {
         isDeleteArrow ? downArrow.remove() : null;
         action()
+    })
+}
+
+//Для десктопа открываем большой popUp справа для отображения информации об объекте
+function openApartmentPopUpDesctop(el, id) {
+
+    el.addEventListener('click', function (event) {
+
+        let datesStr =
+            document.getElementById('catalog-header-from').textContent
+            + ":"
+            + document.getElementById('catalog-header-to').textContent;
+
+        createPopUp("", true)
+
+        getApartmentInfoDesctop(id, datesStr)
+
     })
 }

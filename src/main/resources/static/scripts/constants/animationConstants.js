@@ -31,6 +31,7 @@ const SLIDE_IN = "slideIn"
 const SLIDE_IN_TOP = "slideInTop"
 const SLIDE_IN_BOTTOM = "slideInBottom"
 const SLIDE_IN_LEFT = "slideInLeft"
+const SLIDE_OUT_LEFT = "slideOutLeft"
 
 const FAST_SLIDE_IN_BOTTOM = "fastSlideInBottom"
 

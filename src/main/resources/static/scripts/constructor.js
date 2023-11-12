@@ -91,6 +91,56 @@ function createButton(images, buttonText, buttonClass, articleClass, action) {
     return article;
 }
 
+//Более удобный метод с конструктором на замену createButton()
+function getButton(parentElement, options) {
+
+    let containerClass = options.containerClass
+    let containerId = options.containerId
+    let buttonClass = options.buttonClass
+    let buttonText = options.buttonText
+    let buttonIcons = []
+    console.log("Изображение " + options.buttonIcons)
+    function buttonAction() {options.buttonAction()}
+
+    const buttonContainer = document.createElement('article');
+    const button = document.createElement('button');
+    const span = document.createElement('span');
+
+    buttonContainer.className = containerClass
+    buttonContainer.id = containerId
+    button.className = buttonClass
+
+    //Добавляем действие на кнопку
+    buttonContainer.addEventListener('click', function () {
+        buttonAction()
+    });
+
+    if (options.buttonIcons !== undefined) {
+        console.log("Изображение найдено")
+
+
+        //Добавляем изображения на кнопку
+        options.buttonIcons.forEach(imageSrc => {
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            button.appendChild(img);
+            console.log("Изображение Обработано")
+        });
+    }
+
+
+    // Создаем элемент с текстом кнопки и добавляем его внутрь кнопки
+    span.textContent = buttonText;
+
+    //Добавляем текст на кнопку
+    button.appendChild(span);
+
+    // Добавляем кнопку внутрь элемента <article>
+    buttonContainer.appendChild(button);
+
+    parentElement.append(buttonContainer)
+}
+
 //Создание наполнения popUp'а со списком сервисов
 function createServiceInner(apartmentServicesList) {
     let servicesInner = createElement('article', 'servicestable', '')

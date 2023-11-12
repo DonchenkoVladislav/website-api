@@ -1,7 +1,5 @@
 //Открыть popUp и поместить в него innerElement
-function createPopUp(innerElement) {
-
-    // document.getElementById('catalog_main').classList.add('decreaseScale')
+function createPopUp(innerElement, isLeft) {
 
     let popUpInner = createElement('div', 'popUpInner', '')
 
@@ -9,7 +7,11 @@ function createPopUp(innerElement) {
     createPopUpCloseButton(
         popUpInner,
         () => {
-            closePopUp()
+            if (isLeft) {
+                closePopUp(isLeft)
+            } else {
+                closePopUp()
+            }
         },
         false
     )
@@ -23,20 +25,30 @@ function createPopUp(innerElement) {
 
 
     let popUpCloserSpace = document.createElement('div')
-    popUpCloserSpace.style = "width: 100%; height: 100%"
+    popUpCloserSpace.classList.add('popUpCloserSpace')
+    // popUpCloserSpace.style = "width: 100%; height: 100%"
 
     //Закрыть popUp, тапнув вне его
-    popUpCloserSpace.addEventListener('click', (event) => closePopUp())
+    popUpCloserSpace.addEventListener('click', (event) => {
+
+        if (isLeft) {
+            closePopUp(isLeft)
+        } else {
+            closePopUp()
+        }
+    })
 
     popUp.append(popUpCloserSpace, popUpInner)
     popUpSpaсer.append(popUp)
 
-    playAppearanceAnimationByElement(popUpInner, SLIDE_IN_BOTTOM, TIME_TO_FASTEST_ANIMATION)
+    let sideOfStartAnimation = isLeft ? SLIDE_IN_LEFT : SLIDE_IN_BOTTOM;
+
+    playAppearanceAnimationByElement(popUpInner, sideOfStartAnimation, TIME_TO_FASTEST_ANIMATION)
     playAppearanceAnimationByElement(popUp, APPEARANCE, TIME_TO_FASTEST_ANIMATION)
 }
 
 //Закрыть popUp
-function closePopUp() {
+function closePopUp(isLeft) {
     let popUpList = document.getElementsByClassName('popUp')
     let popUpInnerList = document.getElementsByClassName('popUpInner')
 
@@ -48,7 +60,10 @@ function closePopUp() {
     })
 
     Array.from(popUpInnerList).forEach(popUp => {
-        playDeleteAnimation(popUp, SLIDE_OUT_BOTTOM, TIME_TO_FASTEST_ANIMATION)
+
+        let sideOfStartAnimation = isLeft ? SLIDE_OUT_LEFT : SLIDE_OUT_BOTTOM;
+
+        playDeleteAnimation(popUp, sideOfStartAnimation, TIME_TO_FASTEST_ANIMATION)
         setTimeout(function () {
             popUp.remove()
         }, TIME_TO_FASTEST_ANIMATION * 1000)

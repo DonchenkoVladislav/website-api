@@ -11,3 +11,17 @@ function getApartmentInfo(apartmentId, dates) {
         }
     });
 }
+
+function getApartmentInfoDesctop(apartmentId, dates) {
+    $.ajax({
+        url: '/apartment-info?apartmentId=' + apartmentId + APARTMENT_DATE_PARAM + dates,
+        type: 'GET',
+        success: function(response) {
+            createDesctopApartmentBlock(response)
+        },
+        error: function(xhr, status, error) {
+            // Обработка ошибки
+            console.error(error);
+        }
+    });
+}

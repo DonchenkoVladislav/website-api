@@ -1,19 +1,27 @@
-.apartmentCard {
+.catalogRowButton {
+    font-size: var(--font-size-mini);
+    background: var(--lite-back-color);
+    color: var(--font-color-dark);
+    border-radius: var(--border-radius-mini-mobile);
+    border: var(--none-border);
+    height: fit-content;
     display: flex;
-    /*justify-content: center;*/
-    /*align-items: center;*/
-    flex-direction: column;
-    /*margin: 30px 0;*/
-    margin-bottom: 20px;
+    flex-direction: row;
+    align-items: center;
 }
 
-.apartmentMainPhotoPlace {
-    /*margin-top: var(--inset-standart);*/
-    background-color: #f3f3f3;
-    display: inline-grid;
-    height: var(--mobile-card-closed-img);
-    width: 100%;
-    min-height: var(--mobile-card-closed-img);
+.catalogRowButton span {
+    margin-left: var(--inset-standart);
+    font-weight: 600;
+}
+
+.apartmentCard {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 95%;
+    height: var(--mobile-closed-card);
+    cursor: pointer;
 }
 
 .photoElements {
@@ -23,13 +31,16 @@
 }
 
 .apartmentName, .apartmentPrice {
-    position: absolute;
+    /*position: absolute;*/
     background: var(--alfa-button-color-light);
     /*color: #434343;*/
     color: var(--font-color-dark);
     font-size: var(--font-size-mini);
     backdrop-filter: blur(5px);
     font-weight: 600;
+    padding: var(--inset-standart);
+    border-radius: var(--border-radius-standart);
+    width: fit-content;
 }
 
 .apartmentComboElement {
@@ -41,34 +52,39 @@
     font-weight: 600;
     margin-right: var(--inset-standart);
     display: flex;
+    padding: var(--inset-standart);
+    border-radius: var(--border-radius-micro-mobile);
+    /*margin-top: var(--inset-standart);*/
+    align-items: center;
+    /*margin-bottom: var(--inset-standart);*/
 }
 
-.apartmentName {
-    margin-top: var(--card-lable-inset);
-    margin-left: var(--card-lable-inset);
-}
-
-.apartmentPrice {
-    margin-top: calc(var(--card-lable-inset) + 10%);
-    margin-left: var(--card-lable-inset);
-}
-
-.apartmentComboElementValue {
-
+.apartmentAllAtribute {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    width: fit-content;
+    margin-top: var(--inset-standart);
+    margin-left: var(--inset-standart);
 }
 
 .apartmentAtribute {
-    position: absolute;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /*var(--card-lable-inset) отвечает за отступы надписей сверху и снизу закрытой карточки объекта*/
-    margin-top: calc(var(--mobile-card-closed-img) - var(--catalog-img-size-standart) - var(--inset-standart)*2 - var(--card-lable-inset));
-    margin-left: var(--card-lable-inset);
 }
 
 /* MOBILE */
 @media screen and (max-width: 1000px) {
+
+    .apartmentAllAtribute{
+        height: calc(var(--mobile-closed-card) - 2vh);
+    }
+
+    .catalogRowButton {
+        padding: var(--inset-standart) 4vw;
+    }
 
     /*Классы открытой карточки объекта*/
     .increaseCard {
@@ -87,33 +103,21 @@
         margin-top: 40vh;
     }
 
-    .apartmentCard{
-        width: 95%;
-        height: var(--mobile-closed-card);
-    }
-
     .apartmentCard, .apartmentMainPhotoPlace, .photoElements {
         border-radius: var(--border-radius-mini-mobile);
     }
 
-    .apartmentName {
-        font-size: var(--font-size-mini);
-        font-weight: 600;
-    }
-
-    .apartmentPrice {
-        font-size: var(--font-size-standart);
-        font-weight: 600;
+    .apartmentMainPhotoPlace {
+        /*margin-top: var(--inset-standart);*/
+        background-color: #f3f3f3;
+        display: inline-grid;
+        height: var(--mobile-card-closed-img);
+        width: 100%;
+        min-height: var(--mobile-card-closed-img);
     }
 
     .apartmentName, .apartmentPrice{
         padding: var(--inset-standart);
-        border-radius: var(--border-radius-micro-mobile);
-    }
-
-    .apartmentComboElement {
-        padding: var(--inset-standart);
-        font-size: var(--font-size-mini);
         border-radius: var(--border-radius-micro-mobile);
     }
 
@@ -172,24 +176,6 @@
         margin-left: 7%;
     }
 
-    .catalogRowButton {
-        font-size: var(--font-size-mini);
-        background: var(--lite-back-color);
-        color: var(--font-color-dark);
-        border-radius: var(--border-radius-mini-mobile);
-        border: var(--none-border);
-        padding: var(--inset-standart) 4vw;
-        height: fit-content;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .catalogRowButton span {
-        margin-left: var(--inset-standart);
-        font-weight: 600;
-    }
-
     .catalogRowButtonFullWight {
         background: var(--widget-background-color);
         color: var(--font-color-light);
@@ -228,10 +214,6 @@
         font-size: var(--font-size-standart);
     }
 
-    .cerviceAtribureList {
-        width: 40%;
-    }
-
     .closePopUpButton {
         position: relative;
         top: 5%;
@@ -247,38 +229,45 @@
 /* DESKTOP */
 @media screen and (min-width: 1000px) {
 
+    .catalogRowButton {
+        padding: var(--inset-standart);
+        margin-top: var(--inset-standart);
+    }
+
+    #apartmentHeadImage .photoElements {
+        border-radius: 0 !important;
+        scroll-snap-align: center;
+    }
+
     .apartmentCard{
-        width: 45%;
-        height: 350px;
+        width: 95%;
+        height: fit-content;
     }
 
     .apartmentCard, .apartmentMainPhotoPlace, .photoElements {
         border-radius: var(--border-radius-standart);
     }
 
-    .apartmentName {
-        font-size: var(--font-size-standart);
+    .apartmentMainPhotoPlace {
+        /*margin-top: var(--inset-standart);*/
+        background-color: #f3f3f3;
+        display: inline-grid;
+        /*height: var(--mobile-card-closed-img);*/
+        /*width: 35%;*/
+        height: var(--catalog-card-height);
     }
 
-    .apartmentPrice {
-        font-size: var(--font-size-standart);
-    }
-
-    .apartmentName, .apartmentPrice {
-        padding: var(--inset-standart);
-        border-radius: var(--border-radius-standart);
-    }
-
-    .apartmentComboElement {
-        padding: var(--inset-standart);
-        font-size: var(--font-size-standart);
-        border-radius: var(--border-radius-standart);
-        margin-bottom: var(--inset-standart);
+    .apartmentCard:hover {
+        box-shadow: var(--contrast-box-shadow);
     }
 
     .apartmentComboElement img {
         margin-right: var(--inset-standart);
         width: var(--catalog-img-size-standart);
         height: var(--catalog-img-size-standart);
+    }
+
+    .apartmentAllAtribute {
+        height: calc(var(--catalog-card-height) - 2vh);
     }
 }

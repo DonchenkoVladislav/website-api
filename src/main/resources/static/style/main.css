@@ -22,6 +22,7 @@
     --font-size-big: 6vh;
     --mobile-font-size-big: 10vh;
     --font-size-l: large;
+    --font-size-xl: x-large;
     --font-size-standart: medium;
     --font-size-mini: 14px;
     --font-size-small: small;
@@ -34,21 +35,27 @@
     --primary-background-color: #f6f6f6;
     --lite-back-color: rgb(229 229 229 / 60%);
     --telegram-color: #2ab6f6;
+    --light-color-backgrount: #f6f6f6;
     --widget-background-color: #2b2b2b;
     --widget-place-on-landing-background-color: white;
     --backgrount-gradient: linear-gradient(0deg, #171918, #383D43, #94A5C1, #FAF9FE);
 
     --primari-box-shadow: 0 2px 10px rgba(0, 0, 0, .15);
+    --contrast-box-shadow: 0 0 12px 0 rgb(157 157 157);
 
     --mobile-bookibg-widget-wight: 80vw;
     --mobile-widget-wight: 90vw;
     --bookibg-widget-wight: 22vw;
-    --desctop-catalog-wight: 40vw;
-    --desctop-map-wight: 60vw;
+    --desctop-catalog-wight: calc(100vw - var(--desctop-map-wight));
+    --desctop-map-wight: 75vw;
     --desctop-map-height: 100vh;
     --mobile-catalog-wight: 100vw;
     --mobile-map-height: 70vw;
     --common-catalog-header-height: 15.5vh;
+    --desctop-gallery-width: 40%;
+    --desctop-apartment-page-content: 90%;
+
+    --catalog-card-height: 20vh;
 
     --date-element-side-size: 65px;
 
@@ -97,6 +104,7 @@ a {
     background: var(--alfa-button-color-light);
     border: var(--none-border);
     border-radius: var(--border-radius-standart);
+    cursor: pointer;
 }
 
 .button {
@@ -105,6 +113,30 @@ a {
     border-radius: var(--border-radius-standart);
     color: aliceblue;
     padding: var(--inset-standart);
+    cursor: pointer;
+}
+
+.lightButton {
+    display: flex;
+    font-size: var(--font-size-l);
+    background: var(--alfa-button-color-light);
+    border: var(--none-border);
+    border-radius: var(--border-radius-standart);
+    padding: var(--inset-standart);
+    cursor: pointer;
+}
+
+.lightButton:hover {
+    background: var(--font-color-dark);
+    color: white;
+}
+
+.lightButton img {
+    margin-right: var(--inset-standart);
+}
+
+.lightButton:hover img {
+    filter: invert(1)
 }
 
 .startOpacity {
@@ -140,41 +172,6 @@ a {
     /*font-size: 0;*/
 }
 /*Стили слайдера фотографий объекта*/
-
-.popUp {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9;
-    position: fixed;
-    top: 0;
-    background-color: #0000006e;
-}
-
-.popUpInner {
-    display: flex;
-    flex-direction: column;
-    padding: var(--card-lable-inset);
-    width: 94%;
-    min-height: 68%;
-    background-color: white;
-    /*box-shadow: 0 0 100px rgba(0, 0, 0);*/
-    border-top-right-radius: var(--border-radius-mini-mobile);
-    border-top-left-radius: var(--border-radius-mini-mobile);
-    /*margin-bottom: var(--card-lable-inset);*/
-}
-
-#closePopUp {
-    width: 98%;
-    text-align: right;
-    height: fit-content;
-    font-size: 30px;
-    color: var(--font-color-dark-label);
-    margin-bottom: 5px;
-}
 
 .universalInput {
     width: calc(96% - 2 * var(--inset-standart));
@@ -221,22 +218,96 @@ a {
     font-size: var(--font-size-standart);
 }
 
+/*MOBILE*/
 @media screen and (max-width: 1000px) {
 
     #placeToCitySelect, #currentSelect {
         width: var(--mobile-bookibg-widget-wight);
     }
+
+    .popUp {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        z-index: 9;
+        position: fixed;
+        top: 0;
+        background-color: #0000006e;
+    }
+
+    .popUpInner {
+        display: flex;
+        flex-direction: column;
+        padding: var(--card-lable-inset);
+        width: 94%;
+        min-height: 68%;
+        background-color: white;
+        /*box-shadow: 0 0 100px rgba(0, 0, 0);*/
+        border-top-right-radius: var(--border-radius-mini-mobile);
+        border-top-left-radius: var(--border-radius-mini-mobile);
+        /*margin-bottom: var(--card-lable-inset);*/
+    }
+
+    #closePopUp {
+        width: 98%;
+        text-align: right;
+        height: fit-content;
+        font-size: 30px;
+        color: var(--font-color-dark-label);
+        margin-bottom: 5px;
+    }
+
+    .popUpCloserSpace {
+        width: 100%;
+        height: 100%;
+    }
 }
 
+/*DESCTOP*/
 @media screen and (min-width: 1000px) {
 
     #placeToCitySelect, #currentSelect {
         width: var(--bookibg-widget-wight);
     }
 
-    /*.alfaInput {*/
-    /*    background: var(--alfa-button-color-light);*/
-    /*    border: var(--none-border);*/
-    /*    border-radius: var(--border-radius-standart);*/
-    /*}*/
+    .popUp {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        z-index: 9;
+        position: fixed;
+        top: 0;
+        background-color: #0000009e;
+    }
+
+    .popUpInner {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        overflow: auto;
+        width: var(--desctop-map-wight);
+        height: 100%;
+        background-color: white;
+    }
+
+    #closePopUp {
+        font-size: 30px;
+        color: var(--font-color-dark-label);
+        cursor: pointer;
+        position: absolute;
+        top: var(--inset-standart);
+        right: 1%;
+        z-index: 1;
+    }
+
+    .popUpCloserSpace {
+        width: calc(100vw - var(--desctop-map-wight));
+        height: 100%;
+    }
 }

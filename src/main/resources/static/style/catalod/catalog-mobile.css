@@ -72,12 +72,10 @@
     #catalog-header-dates-calendar {
         width: 60%;
     }
+}
 
-    #downArrowCatalog {
-        text-align: center;
-        height: fit-content;
-        font-size: 25px;
-        transform: rotate(270deg);
-        color: var(--font-color-dark-label);
+@media screen and (max-width: 1500px) {
+    .onlyDesctop {
+        display: none;
     }
 }

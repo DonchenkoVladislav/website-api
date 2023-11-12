@@ -1,5 +1,10 @@
 @media screen and (min-width: 1000px) {
 
+    #catalog-header {
+        background: linear-gradient(180deg, #5b6f8ea1, 25%, transparent);
+        /*background: url("/images/foneImages/yantarnui.png");*/
+    }
+
     .onlyDesctop {}
 
     .onlyMobile {
@@ -11,7 +16,13 @@
     }
 
     #catalog-column {
-        width: var(--desctop-catalog-wight);
+        width: 100vw;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    #catalog-header {
+        left: 0;
     }
 
     #catalog-header, #catalog-body {
@@ -19,8 +30,10 @@
     }
 
     #catalog-body {
-        top: 19vh;
-        border-radius: var(--border-radius-standart);
+        top: 14vh;
+        /*max-height: 100vh - top (12 vh) - margin-tpo (1 vh)*/
+        max-height: 85vh;
+        overflow: scroll;
     }
 
     .filterButton {
@@ -78,8 +91,13 @@
     }
 
     .button {
+        display: flex;
         font-size: var(--font-size-l);
         margin-right: 1vw;
+    }
+
+    .button img {
+        margin-right: var(--inset-standart);
     }
 
     button p {
@@ -93,5 +111,47 @@
 
     #catalog-header-dates-calendar {
         width: 35%;
+    }
+
+    .desctopApartmentBlock {
+        padding: var(--inset-standart);
+    }
+
+    #apartmentHeadImage {
+        width: var(--desctop-gallery-width);
+        height: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-mask-image: linear-gradient(90deg, black, 85%, transparent);
+    }
+
+    #apartmentInfoDesctop {
+        display: flex;
+        flex-direction: column;
+        /*flex-wrap: wrap;*/
+        width: calc(100% - var(--desctop-gallery-width) - 4 * var(--inset-standart) - 5vw);
+        overflow: scroll;
+        height: var(--desctop-apartment-page-content);
+    }
+
+    #apartmentAtributes {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #name_spacer {
+        font-size: var(--font-size-xl);
+        font-weight: 600;
+        margin-bottom: var(--large-vertical-inset);
+    }
+
+    #city_spacer {
+        margin-top: var(--large-vertical-inset);
+        font-size: var(--font-size-l);
+        font-weight: 600;
+        margin-bottom: var(--large-vertical-inset);
     }
 }
