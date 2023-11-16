@@ -1,8 +1,8 @@
 @media screen and (min-width: 1000px) {
 
     #catalog-header {
-        background: linear-gradient(180deg, #5b6f8ea1, 25%, transparent);
-        /*background: url("/images/foneImages/yantarnui.png");*/
+        border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
+        top: var(--desctop-main-elements-to-catalkog-inset);
     }
 
     .onlyDesctop {}
@@ -21,18 +21,17 @@
         flex-direction: row-reverse;
     }
 
-    #catalog-header {
-        left: 0;
-    }
-
     #catalog-header, #catalog-body {
-        width: var(--desctop-catalog-wight);
+        position: fixed;
+        left: var(--desctop-main-elements-to-catalkog-inset);
+        width: var(--bookibg-widget-wight);
     }
 
     #catalog-body {
-        top: 14vh;
+        border-radius: 0 0 var(--border-radius-large) var(--border-radius-large);
+        top: 17vh;
         /*max-height: 100vh - top (12 vh) - margin-tpo (1 vh)*/
-        max-height: 85vh;
+        max-height: calc(93vh - var(--catalog-header-height));
         overflow: scroll;
     }
 
@@ -110,7 +109,7 @@
     }
 
     #catalog-header-dates-calendar {
-        width: 35%;
+        width: 60%;
     }
 
     .desctopApartmentBlock {

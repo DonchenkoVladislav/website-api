@@ -34,8 +34,8 @@ img {
 #catalog-header {
     display: flex;
     flex-direction: column;
-    top: 0;
-    height: fit-content;
+    height: var(--catalog-header-height);
+    min-height: 110px;
     padding-bottom: var(--inset-standart);
     z-index: 2;
     position: fixed;

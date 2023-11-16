@@ -1,5 +1,6 @@
 :root{
     --border-radius-standart: 10px;
+    --border-radius-large: 16px;
     --border-radius-standart-mobile: 3vh;
     --border-radius-mini-mobile: 1.5vh;
     --border-radius-micro-mobile: 10px;
@@ -47,13 +48,15 @@
     --mobile-widget-wight: 90vw;
     --bookibg-widget-wight: 22vw;
     --desctop-catalog-wight: calc(100vw - var(--desctop-map-wight));
-    --desctop-map-wight: 75vw;
+    --desctop-map-wight: 100vw;
     --desctop-map-height: 100vh;
     --mobile-catalog-wight: 100vw;
     --mobile-map-height: 70vw;
     --common-catalog-header-height: 15.5vh;
     --desctop-gallery-width: 40%;
-    --desctop-apartment-page-content: 90%;
+    --desctop-apartment-page-content: 94%;
+    --desctop-main-elements-to-catalkog-inset: 3%;
+    --catalog-header-height: 13%;
 
     --catalog-card-height: 20vh;
 
@@ -283,17 +286,20 @@ a {
         z-index: 9;
         position: fixed;
         top: 0;
-        background-color: #0000009e;
+        background-color: #00000070;
     }
 
     .popUpInner {
+        margin-right: var(--desctop-main-elements-to-catalkog-inset);
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         overflow: auto;
-        width: var(--desctop-map-wight);
-        height: 100%;
+        width: calc(100vw - (2 * var(--desctop-main-elements-to-catalkog-inset)) - var(--bookibg-widget-wight));
+        height: var(--desctop-apartment-page-content);
+        border-radius: var(--border-radius-large);
         background-color: white;
+        box-shadow: var(--primari-box-shadow);
     }
 
     #closePopUp {
@@ -301,13 +307,14 @@ a {
         color: var(--font-color-dark-label);
         cursor: pointer;
         position: absolute;
-        top: var(--inset-standart);
-        right: 1%;
+        top: 4%;
+        right: 4%;
         z-index: 1;
+        animation: appearance 1s ease-in-out;
     }
 
     .popUpCloserSpace {
-        width: calc(100vw - var(--desctop-map-wight));
+        width: 28vw;
         height: 100%;
     }
 }

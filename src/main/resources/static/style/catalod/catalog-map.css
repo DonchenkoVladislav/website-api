@@ -26,6 +26,6 @@
     #map {
         height: var(--desctop-map-height);
         width: var(--desctop-map-wight);
-        left: var(--desctop-catalog-wight);
+        /*left: var(--desctop-catalog-wight);*/
     }
 }

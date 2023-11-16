@@ -362,7 +362,7 @@
     }
 
     #galleryDesctopArrowButtonLeft {
-        left: 26vw;
+        left: 28vw;
     }
 
     #galleryDesctopArrowButtonRight {
@@ -371,7 +371,7 @@
 
     #copyButtonContainer {
         position: absolute;
-        top: 92%;
-        left: calc(var(--desctop-gallery-width)/1.18);
+        top: 86%;
+        left: calc(var(--desctop-gallery-width)/1.14);
     }
 }
