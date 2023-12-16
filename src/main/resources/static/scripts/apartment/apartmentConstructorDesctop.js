@@ -63,7 +63,7 @@ function createDesctopApartmentBlock(response) {
         buttonAction: () => tapOnArrowButton(galleryDesctop, RIGHT_ARROW_SIMBOL)
     })
 
-    //Конпка Забронироваь для десктопа
+    //Конпка Забронировать для десктопа
     getButton(apartmentBookingDesctop, {
         buttonText: "Забронировать за " + response.summary + " " + RUR,
         buttonClass: "button",
@@ -75,7 +75,6 @@ function createDesctopApartmentBlock(response) {
 }
 
 function tapOnArrowButton(gallery, side) {
-
 
 // Устанавливаем обработчик события для кнопки "Вперед"
     if (side === RIGHT_ARROW_SIMBOL) {

@@ -103,6 +103,10 @@ a {
     font-family: var(--font-family-text);
 }
 
+button {
+    cursor: pointer;
+}
+
 .alfaInput {
     background: var(--alfa-button-color-light);
     border: var(--none-border);
@@ -212,10 +216,7 @@ a {
     color: var(--font-color-light);
 }
 
-.selectIsFullClass {
-    width: calc(100% - 2 * var(--inset-standart)) !important;
-    height: 56%;
-}
+
 
 .selectIsFullClass button p {
     font-size: var(--font-size-standart);
@@ -226,6 +227,11 @@ a {
 
     #placeToCitySelect, #currentSelect {
         width: var(--mobile-bookibg-widget-wight);
+    }
+
+    .selectIsFullClass {
+        width: calc(100% - 2 * var(--inset-standart)) !important;
+        height: 56%;
     }
 
     .popUp {
@@ -274,6 +280,12 @@ a {
 
     #placeToCitySelect, #currentSelect {
         width: var(--bookibg-widget-wight);
+    }
+
+    .selectIsFullClass {
+        top: 65%;
+        width: 34% !important;
+        height: fit-content;
     }
 
     .popUp {

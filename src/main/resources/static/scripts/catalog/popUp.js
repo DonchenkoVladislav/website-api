@@ -1,7 +1,9 @@
 //Открыть popUp и поместить в него innerElement
-function createPopUp(innerElement, isLeft) {
+function createPopUp(innerElement, isLeft, additionalClass) {
 
     let popUpInner = createElement('div', 'popUpInner', '')
+
+    if (additionalClass !== undefined) popUpInner.classList.add(additionalClass)
 
 
     createPopUpCloseButton(

@@ -201,7 +201,11 @@ function createBookingAlertPopUp(response) {
         alertOkButton
     )
 
-    createPopUp(inner)
+    if (DESCTOP_JS) {
+        createPopUp(inner, true, 'desctopMiniPopUp')
+    } else {
+        createPopUp(inner)
+    }
 }
 
 //PopUp с формой бронирования
@@ -250,7 +254,11 @@ function createBookingPopUp(response) {
         )
     )
 
-    createPopUp(inner)
+    if (DESCTOP_JS) {
+        createPopUp(inner, true, 'desctopMiniPopUp')
+    } else {
+        createPopUp(inner)
+    }
 }
 
 function createUserInfoFormForBooking(selector, lastBookingDate) {

@@ -1,6 +1,9 @@
 const MOBILE = "(max-width: 1000px)"
 const DESCTOP = "(min-width: 1000px)"
 
+const MOBILE_JS = window.matchMedia("(max-width: 1000px)").matches;
+const DESCTOP_JS = window.matchMedia("(min-width: 1000px)").matches;
+
 //Заглушка
 const EMPTY = 'empty'
 

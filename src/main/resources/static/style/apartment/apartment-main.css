@@ -34,6 +34,24 @@
     margin-right: var(--inset-standart);
 }
 
+#name_spacerForBookingForm, #summ_spacerForBookingForm, #date_spacerForBookingForm {
+    display: block;
+    width: calc(100% - 2 * var(--inset-standart));
+    text-align: start;
+}
+
+#name_spacerForBookingForm, #summ_spacerForBookingForm {
+    font-size: large;
+    font-weight: 600;
+}
+
+.smallHeader {
+    font-size: var(--font-size-smaller);
+    color: var(--font-color-gray);
+    margin-top: var(--large-vertical-inset);
+    display: block;
+}
+
 /*MOBILE*/
 @media screen and (max-width: 1000px) {
     .goToPreviousPage {
@@ -96,17 +114,6 @@
         font-size: x-large;
         font-weight: 600;
         margin-bottom: 1vh;
-    }
-
-    #name_spacerForBookingForm, #summ_spacerForBookingForm, #date_spacerForBookingForm {
-        display: block;
-        width: calc(100% - 2 * var(--inset-standart));
-        text-align: start;
-    }
-
-    #name_spacerForBookingForm, #summ_spacerForBookingForm {
-        font-size: large;
-        font-weight: 600;
     }
 
     #city_spacer {
@@ -205,13 +212,6 @@
 
     .apartmentGallery img {
         border-radius: 0 !important;
-    }
-
-    .smallHeader {
-        font-size: var(--font-size-smaller);
-        color: var(--font-color-gray);
-        margin-top: var(--large-vertical-inset);
-        display: block;
     }
 
     .smallHeaderPlus {
@@ -373,5 +373,42 @@
         position: absolute;
         top: 86%;
         left: calc(var(--desctop-gallery-width)/1.14);
+    }
+
+    .desctopMiniPopUp{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+    }
+
+    .allertPopUpInner, .bookingPopUpInner{
+        width: 50%;
+        height: 50%;
+        flex-direction: column;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .alertHeaderEyes{
+        font-size: 72px;
+        text-align: center;
+    }
+
+    .popUpButton {
+        font-size: var(--font-size-standart);
+        color: var(--font-color-light);
+        background: var(--widget-background-color);
+        border-radius: var(--border-radius-mini-mobile);
+        border: var(--none-border);
+        padding: var(--inset-standart) 4vw;
+        height: fit-content;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        width: 96%;
     }
 }
