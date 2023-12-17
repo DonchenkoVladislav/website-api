@@ -249,7 +249,7 @@ function createBookingPopUp(response) {
             "popUpButton",
             null,
             () => {
-                closePopUp()
+                createBookingRequest(response)
             }
         )
     )
@@ -261,6 +261,44 @@ function createBookingPopUp(response) {
     }
 }
 
+//Собираем данные, введенные пользователем и отправляем на бэк
+function createBookingRequest(response) {
+    let usersDataCollection = document.getElementsByClassName("universalInput")
+
+    let userName = usersDataCollection[0].value;
+    let userPhone = usersDataCollection[1].value;
+    let userConnection = usersDataCollection[2].value;
+
+    //Отправка нового объекта на сервер
+    $.ajax({
+        type: "POST",
+        url: "/booking-request",
+        dataType: 'json',
+        processData: false,
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify({
+            "apartmentId": response.id,
+            "apartmentName": response.name,
+            "city": response.city,
+            "dates": response.bookingDates,
+            "name": userName,
+            "phone": userPhone,
+            "connection": userConnection,
+        }),
+        success: function (request) {
+            console.log('Запрос на /booking-request отправлен ' + request.status)
+            closePopUp()
+        },
+        error: function (request, status, error) {
+            if (!save.status === 200) {
+                descriptionRequestStatus = FAIL
+                alert("Упс! Что-то пошло не так. Попробуйте еще раз")
+            }
+        }
+    })
+}
+
+//Хз что за метод (удалить его и проверить, что ничего не сломалось)
 function createUserInfoFormForBooking(selector, lastBookingDate) {
     selector.append(
         createElement('span', APARTMENT_ELEMENT, response.name, 'name_spacerForBookingForm'),
